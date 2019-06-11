@@ -1,8 +1,12 @@
+p 'Starting seed'
+
 Organization.destroy_all
 User.destroy_all
 Test.destroy_all
 Result.destroy_all
 Project.destroy_all
+
+p 'Models destroyed'
 
 # Organizations
 
@@ -39,22 +43,30 @@ organization4 = Organization.create!(
 user1 = User.create!(
   organization: organization1,
   email: "judson@ko.info",
-  role: 'admin')
+  role: 'admin',
+  password: 'secret'
+  )
 
 user2 = User.create!(
   organization: organization1,
   email: "adeladurgan@blandaeffertz.org",
-  role: 'user')
+  role: 'user',
+  password: 'secret'
+  )
 
 user3 = User.create!(
   organization: organization1,
   email: "devonabashirian@kutch.com",
-  role: 'admin')
+  role: 'admin',
+  password: 'secret'
+  )
 
 user4 = User.create!(
   organization: organization1,
   email: "rogeliodickens@wuckert.biz",
-  role: 'user')
+  role: 'user',
+  password: 'secret'
+  )
 
 # Projects
 
@@ -146,9 +158,7 @@ test7 = Test.create!(
   name: 'event category consistency',
   frequency: 'monthly',
   ga_report_type: 'event',
-  event_category_regex: 'browsing|ecommerce|menu',
-  event_action_regex:
-  event_label_regex:
+  event_category_regex: 'browsing|ecommerce|menu'
   )
 
 test8 = Test.create!(
@@ -271,3 +281,5 @@ result9 = Result.create!(
   number_incorrect_values: 0,
   top_incorrect_values: '{abcd,efgh,1234543322}'
   )
+
+p 'End of seed'
