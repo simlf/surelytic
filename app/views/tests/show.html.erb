@@ -1,0 +1,10 @@
+<%= link_to "back", organization_path %>
+<div class="container">
+  <h2><%= @test.name %></h2>
+  <% @test.results.each do |result| %>
+  <p>--- test ---</p>
+  <p><%= result.number_total_values %> values</p>
+  <p><%= result.number_incorrect_values %> values</p>
+  <% end %>
+</div>
+

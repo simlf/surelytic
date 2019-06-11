@@ -199,7 +199,7 @@ test11 = Test.create!(
   goal_index: 3
   )
 
-test11 = Test.create!(
+test12 = Test.create!(
   user: user1,
   project: project1,
   name: 'Add to wishlist',
