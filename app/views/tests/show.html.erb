@@ -1,16 +1,17 @@
-<%= link_to "back", organization_path %>
+<%= link_to "back to organization page", organization_path %>
 <div class="container">
-  <h2><%= @test.name %></h2>
-  <h3><%= @test.ga_report_type.capitalize %> REGEX <i>"change placeholder"</i></h3>
+  <h2>Test name : <%= @test.name %></h2>
+  <h3>Test type : <%= @test.ga_report_type.capitalize %> </h3>
+  <h3>REGEX used : <%= @test.event_category_regex %> </h3>
   <% if @last_result == nil %>
-    <p>No test yet<br>Come back later</p>
+    <p>No result yet 😢 <br>Come back later</p>
   <% else %>
     <table>
       <tr>
         <h4>Last run details</h4>
       </tr>
       <tr>
-        <td>Date place</td>
+        <td>Run date</td>
         <td><%= @last_result.created_at %></td>
       </tr>
       <tr>
