@@ -1,0 +1,56 @@
+<%= link_to "back", organization_path %>
+<div class="container">
+  <h2><%= @test.name %></h2>
+  <h3><%= @test.ga_report_type.capitalize %> REGEX <i>"change placeholder"</i></h3>
+  <% if @last_result == nil %>
+    <p>No test yet<br>Come back later</p>
+  <% else %>
+    <table>
+      <tr>
+        <h4>Last run details</h4>
+      </tr>
+      <tr>
+        <td>Date place</td>
+        <td><%= @last_result.created_at %></td>
+      </tr>
+      <tr>
+        <td>Total transactions</td>
+        <td><%= @last_result.number_total_values %></td>
+      </tr>
+        <td>Total incorrect transactions </td>
+        <td><%= @last_result.number_incorrect_values %></td>
+      </tr>
+      </tr>
+        <td>delta / previous test run</td>
+        <td> <%= (@last_result.number_total_values/@before_last_result.number_total_values.to_f).round(4)*100  %>% | </td>
+      </tr>
+        </tr>
+        <td>Top 3 incorrect values</td>
+        <td></td>
+      </tr>
+      </tr>
+        <td>“Moogle Tee White”</td>
+        <td>3 transactions</td>
+      </tr>
+      </tr>
+        <td>“GGGGDSSSS”</td>
+        <td>2 transactions</td>
+      </tr>
+      </tr>
+        <td>“Google Large Tote Canvas”</td>
+        <td>2 transactions</td>
+      </tr>
+      </tr>
+        <td></td>
+        <td>Last 10 runs</td>
+      </tr>
+    </table>
+  </div>
+
+  <% @test.results.each do |result| %>
+    <p>--- test ---</p>
+    <p><%= result.number_total_values %> values</p>
+    <p><%= result.number_incorrect_values %> values</p>
+  <% end %>
+
+<% end %>
