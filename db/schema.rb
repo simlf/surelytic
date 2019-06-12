@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_085207) do
   create_table "projects", force: :cascade do |t|
     t.bigint "organization_id"
     t.string "name"
+    t.string "ga_view_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["organization_id"], name: "index_projects_on_organization_id"

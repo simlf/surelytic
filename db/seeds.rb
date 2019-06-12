@@ -72,22 +72,26 @@ user4 = User.create!(
 
 project1 = Project.create!(
   name: "Hermann and Sons",
-  organization: organization1
+  organization: organization1,
+  ga_view_id: "148384019"
   )
 
 project2 = Project.create!(
   name: "Swift-Block",
-  organization: organization1
+  organization: organization1,
+  ga_view_id: "148384019"
   )
 
 project3 = Project.create!(
   name: "Gerhold-Kirlin",
-  organization: organization1
+  organization: organization1,
+  ga_view_id: "148384019"
   )
 
 project4 = Project.create!(
   name: "Stiedemann and Sons",
-  organization: organization1
+  organization: organization1,
+  ga_view_id: "148384019"
   )
 
 # Tests
@@ -95,19 +99,19 @@ project4 = Project.create!(
 test1 = Test.create!(
   user: user1,
   project: project1,
-  name: 'Products ID',
-  frequency: 'monthly',
-  ga_report_type: 'enhanced e-commerce',
-  eec_product_id_regex:'[0-9]{6}'
+  name: 'Event category Edito or technique',
+  frequency: 'daily',
+  ga_report_type: 'event',
+  event_category_regex:'Éditorial|Technique'
   )
 
 test2 = Test.create!(
   user: user1,
   project: project1,
-  name: 'Products name control',
+  name: 'Event category Edito or technique',
   frequency: 'daily',
-  ga_report_type: 'enhanced e-commerce',
-  eec_product_category_regex: 'Shoes|Bags'
+  ga_report_type: 'event',
+  event_category_regex:'Pakito|Technique'
   )
 
 test3 = Test.create!(
