@@ -16,6 +16,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+gem 'google-api-client' # v. 0.11
+gem 'omniauth-google-oauth2' # v. 0.4.1 with Devise
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

@@ -1,12 +1,12 @@
+require 'google/apis/analyticsreporting_v4'
+# require 'googleauth'
+
 class RunTestService
   def initialize(test)
     @test = test
   end
 
   def call
-    @test = Test.find(params)
-    @result = Result.new
-
     # default values
     api_start_date = 'yesterday'
     api_end_date = 'yesterday'
@@ -23,21 +23,21 @@ class RunTestService
 
     if @test.ga_report_type == 'custom dimension'
       api_metric = @test.cd_scope
-      api_dimension = `ga:dimension#{@test.cd_index}`
-      api_condition_regex = `ga:dimension#{@test.cd_index}=~#{@test.cd_regex}`
+      api_dimension = "ga:dimension#{@test.cd_index}"
+      api_condition_regex = "ga:dimension#{@test.cd_index}=~#{@test.cd_regex}"
 
     elsif @test.ga_report_type == 'event'
       api_metric = 'ga:totalEvents'
       api_dimension = 'ga:eventCategory'
-      api_condition_regex = `ga:eventCategory=~#{@test.event_category_regex}`
+      api_condition_regex = "ga:eventCategory=~#{@test.event_category_regex}"
 
     elsif @test.ga_report_type == 'enhanced e-commerce'
       api_metric = 'ga:transactions'
       api_dimension = 'ga:productName'
-      api_condition_regex = `ga:productName=~#{@test.eec_product_name_regex}`
+      api_condition_regex = "ga:productName=~#{@test.eec_product_name_regex}"
 
     elsif @test.ga_report_type == 'goals'
-      api_metric = `ga:goal#{@test.goal_index}completions`
+      api_metric = "ga:goal#{@test.goal_index}completions"
     end
 
     service = Google::Apis::AnalyticsreportingV4::AnalyticsReportingService.new
@@ -47,6 +47,7 @@ class RunTestService
     )
     service.authorization = credentials
     google_client = service
+
     date_range = Google::Apis::AnalyticsreportingV4::DateRange.new(
       start_date: api_start_date, end_date: api_end_date
     )
@@ -66,7 +67,7 @@ class RunTestService
     )
 
     report_request_with_regex = Google::Apis::AnalyticsreportingV4::ReportRequest.new(
-      view_id: '196537952',
+      view_id: api_view_id,
       sampling_level: 'DEFAULT',
       filters_expression: api_condition_regex,
       date_ranges: [date_range],
@@ -78,26 +79,24 @@ class RunTestService
     request = Google::Apis::AnalyticsreportingV4::GetReportsRequest.new({
       report_requests: [report_request]
     })
-    request_with_regex = Google::Apis::AnalyticsreportingV4alyticsreportingV4::GetReportsRequest.new({
+    request_with_regex = Google::Apis::AnalyticsreportingV4::GetReportsRequest.new({
       report_requests: [report_request_with_regex]
     })
 
-    # API calls
     response = google_client.batch_get_reports(request)
     response_with_regex = google_client.batch_get_reports(request_with_regex)
 
-    # Do stuff with both responses
-    # ga_api_results = @response.reports[0].data.rows
+    total_values = response.reports[0].data.totals[0].values[0].to_i
+    correct_values = response_with_regex.reports[0].data.totals[0].values[0].to_i
+
+    @result = Result.new
+    @result.number_total_values = total_values
+    @result.number_incorrect_values = total_values - correct_values
+    @result.test = @test
+    @result.save
   end
 end
 
 # rails c
-# test = Test.first
+# test = Test.second
 # RunTestService.new(test).call
-
-# view part
-#     <h1>API request</h1>
-# <% ga_api_results = @response.reports[0].data.rows %>
-# <% ga_api_results.each do |row| %>
-#  <p> <%= row.dimensions[0] %> | <%= row.metrics[0].values[0]  %>  </p>
-# <% end %>
