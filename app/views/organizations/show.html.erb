@@ -1,39 +1,61 @@
 <div class="container">
   <h1><%= @organization.name %></h1>
 
+    <div class="orga-section">
+
+      <div class="orga-section-headline d-flex">
+        <h2><i class="fas fa-money-check-alt"></i> Credits</h2>
+        <button type="button" class="btn btn-primary">Purchase extra credits</button>
+      </div>
+
+      <div id="credits_display" class="d-flex">
+          <div class="credits-box">
+            <div>Monthly credits</div>
+            <div><%= @organization.monthly_credits %></div>
+          </div>
+
+          <div class="credits-box">
+            <div>Current credits</div>
+            <div><%= @organization.current_credits %></div>
+          </div>
+      </div>
+
+    </div>
 
 
-  <br>
-  <h2>Credits</h2>
+    <div class="orga-section">
 
-  <p>
-    Monthly credits <%= @organization.monthly_credits %>
-    <br>
-    Current credits <%= @organization.current_credits %>
-    <br>
-    <button>Purchase extra credits</button>
-  </p>
+      <div class="orga-section-headline d-flex">
+        <h2><i class="fas fa-user-tie"></i> Users</h2>
+        <button type="button" class="btn btn-primary">Add new user</button>
+      </div>
 
+      <div class="d-flex users_display">
+        <% @organization.users.each do |user| %>
+        <div>
+          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier">
+          <div class="user-card"><%= user.email %></div>
+          <div>Edit user info</div>
+        </div>
+        <% end%>
+      </div>
 
-  <br><br><br>
-  <h2>Users</h2>
-    <% @organization.users.each do |user| %>
-      <p>
-        <%= user.email %>
-      </p>
-    <% end%>
-    <button>Add new user</button>
+    </div>
 
-  <br><br><br>
-  <h2>Projects</h2>
-  <button><%= link_to "create new project", new_project_path %></button>
+    <div class="orga-section">
 
+      <div class="orga-section-headline d-flex">
+        <h2><i class="fas fa-cogs"></i> Projects</h2>
+        <button type="button" class="btn btn-primary">Create new project</button>
+      </div>
 
-  <% @projects.each do |project| %>
-    <h4><%= project.name %>  Tests <%= link_to " See project page", project_path(project) %></h4>
-    <% project.tests.each do |test| %>
-      <p><%= test.name %> | <%= link_to "see test details", project_test_path(project, test) %></p>
-      <!-- info : /projects/:project_id/tests/:id -->
-    <% end %>
-  <% end %>
+      <% @projects.each do |project| %>
+        <h4><%= project.name %>  Tests <%= link_to " Project page", project_path(project) %></h4>
+        <% project.tests.each do |test| %>
+          <p><%= test.name %> | <%= link_to "Test details", project_test_path(project, test) %></p>
+        <% end %>
+      <% end %>
+
+    </div>
+
 </div>
