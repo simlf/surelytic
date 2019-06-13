@@ -1,0 +1,34 @@
+<%= link_to "back", project_path(params[:project_id]) %>
+<div class="container">
+
+  <h1>Edit <%= @test.name %> test!</h1>
+
+  <%= simple_form_for([@project, @test]) do |f| %>
+    <%= f.input :name, placeholder: 'test name', :label => "What's the name of your test?" %>
+    <%= f.input :frequency, placeholder: 'daily', :label => "What's the frequency of your test?" %>
+    <%= f.input :ga_report_type, placeholder: 'enhanced e-commerce', :label => "What's the name of your test type?" %>
+    <h4>----------</h4>
+    <h5>custom dimension</h5>
+    <%= f.input  :cd_index, placeholder: '', :label => "regex cd_index"  %>
+    <%= f.input  :cd_regex, placeholder: '', :label => "regex cd_regex"  %>
+    <%= f.input  :cd_scope, placeholder: '', :label => "regex cd_scope"  %>
+    <h4>----------</h4>
+    <h5>enhanced e-commerce</h5>
+    <%= f.input  :eec_product_name_regex, placeholder: '', :label => "regex eec_product_name_regex"  %>
+    <%= f.input  :eec_product_id_regex, placeholder: '', :label => "regex eec_product_id_regex"  %>
+    <%= f.input  :eec_product_category_regex, placeholder: '', :label => "regex eec_product_category_regex"  %>
+    <%= f.input  :eec_product_brand_regex, placeholder: '', :label => "regex eec_product_brand_regex"  %>
+    <h4>----------</h4>
+    <h5>event</h5>
+    <%= f.input  :event_category_regex, placeholder: '', :label => "regex event_category_regex"  %>
+    <%= f.input  :event_action_regex, placeholder: '', :label => "regex event_action_regex"  %>
+    <%= f.input  :event_label_regex, placeholder: '', :label => "regex event_label_regex"  %>
+    <h4>----------</h4>
+    <h5>goals</h5>
+    <%= f.input  :goal_index, placeholder: '', :label => "regex goal_index"  %>
+
+    <%= f.button :submit, 'edit test', class: 'btn btn-primary' %>
+  <% end %>
+  </div>
+</div>
+
