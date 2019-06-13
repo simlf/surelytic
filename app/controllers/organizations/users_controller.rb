@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class Organizations::UsersController < ApplicationController
 
   def new
     @user = User.new
@@ -9,16 +9,16 @@ class UsersController < ApplicationController
     @user.organization = current_user.organization
 
     if @user.save
-      redirect_to organization_path(@organization)
+      redirect_to organization_path
     else
-      render new
+      render :new
     end
   end
 
   private
 
   def user_params
-    params.require(:organization).permit(:email, :password)
+    params.require(:user).permit(:email, :password)
   end
 
 end
