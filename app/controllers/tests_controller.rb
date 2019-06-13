@@ -21,7 +21,7 @@ class TestsController < ApplicationController
     @test.user = current_user
 
     @test.save
-    redirect_to project_path(project)
+    redirect_to project_test_path(project)
   end
 
   private
