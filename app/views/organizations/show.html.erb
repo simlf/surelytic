@@ -22,6 +22,16 @@
 
     </div>
 
+  <br><br><br>
+  <h2>Users</h2>
+    <% @organization.users.each do |user| %>
+      <p>
+        <%= user.email %>
+      </p>
+    <% end%>
+    <div class="btn btn-primary"><%= link_to "Add a new user", new_organization_user_path %>
+    </div>
+
 
     <div class="orga-section">
 

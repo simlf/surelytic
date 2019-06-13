@@ -1,0 +1,13 @@
+<%= link_to "Back to the organization", organization_path %>
+<div class="container">
+
+  <h1>Add a user!</h1>
+
+  <%= simple_form_for([:organization, @user]) do |f| %>
+    <%= f.input :email, placeholder: 'eg.bob@gmail.com', :label => "What's the new user's email?" %>
+    <%= f.input :password, placeholder: 'Password', :label => "What's the new user's password?" %>
+
+    <%= f.button :submit, 'New user', class: 'btn btn-primary' %>
+  <% end %>
+  </div>
+</div>
