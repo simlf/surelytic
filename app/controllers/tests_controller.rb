@@ -24,6 +24,19 @@ class TestsController < ApplicationController
     redirect_to project_path(project)
   end
 
+  def edit
+    @project = current_user.projects.find(params[:project_id])
+    @test = @project.tests.find(params[:id])
+  end
+
+  def update
+    @project = current_user.projects.find(params[:project_id])
+    @test = Test.find(params[:id])
+    @test.update(test_params)
+
+    redirect_to project_path(@project)
+  end
+
   private
 
   def test_params
