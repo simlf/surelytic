@@ -8,6 +8,14 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    <%=  f.simple_fields_for :organization do |orga_form|%>
+    <%= orga_form.input :name,
+                placeholder: 'Super agency',
+                :label => "What's the name of your organization?"%>
+    <%= orga_form.input :ga_account_service_id,
+                placeholder: 'Google analytic accounts id',
+                :label => "What's the name of your GA?"%>
+    <% end %>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
