@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   def show
-    @orga = Organization.find(current_user.id)
-    @projects = current_user.projects # valide
+    @organization = current_user.organization
+    @projects = current_user.projects
   end
 end
