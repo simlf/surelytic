@@ -4,6 +4,6 @@
   <h3><%= link_to "Create new test", new_project_test_path(@project)  %></h3>
   <h2>Vos test</h2>
   <% @project.tests.each do |test| %>
-  <p><%= test.name %> | <%= link_to "see details", project_test_path(@project, test) %></p>
+  <p><%= test.name %> | <%= link_to "see details", project_test_path(@project, test) %> | <%= link_to "edit", edit_project_test_path(@project, test) %></p>
   <% end %>
 </div>

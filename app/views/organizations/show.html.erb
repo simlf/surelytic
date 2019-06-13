@@ -1,12 +1,38 @@
 <div class="container">
-  <h1>hello <%= @orga.name %></h1>
-  <h2>All your tests 🕶️</h2>
-  <h3><%= link_to "create new project", new_project_path %></h3>
+  <h1><%= @organization.name %></h1>
+
+
+
+  <br>
+  <h2>Credits</h2>
+
+  <p>
+    Monthly credits <%= @organization.monthly_credits %>
+    <br>
+    Current credits <%= @organization.current_credits %>
+    <br>
+    <button>Purchase extra credits</button>
+  </p>
+
+
+  <br><br><br>
+  <h2>Users</h2>
+    <% @organization.users.each do |user| %>
+      <p>
+        <%= user.email %>
+      </p>
+    <% end%>
+    <button>Add new user</button>
+
+  <br><br><br>
+  <h2>Projects</h2>
+  <button><%= link_to "create new project", new_project_path %></button>
+
 
   <% @projects.each do |project| %>
-    <h3><%= project.name %> | <%= link_to "👓️", project_path(project) %></h3>
+    <h4><%= project.name %>  Tests <%= link_to " See project page", project_path(project) %></h4>
     <% project.tests.each do |test| %>
-      <p><%= test.name %> | <%= link_to "see details", project_test_path(project, test) %></p>
+      <p><%= test.name %> | <%= link_to "see test details", project_test_path(project, test) %></p>
       <!-- info : /projects/:project_id/tests/:id -->
     <% end %>
   <% end %>
