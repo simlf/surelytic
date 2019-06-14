@@ -40,10 +40,10 @@ class TestsController < ApplicationController
 
   def destroy
     @project = current_user.projects.find(params[:project_id])
-    @test = Test.find(test_params)
+    @test = @project.tests.find(params[:id])
     @test.destroy
 
-    redirect_to project_path
+    redirect_to project_path(@project)
   end
 
 

@@ -1,5 +1,8 @@
-<%= link_to "Back to organization page", organization_path %>
-<%= link_to "Delete test", project_test_path, method: :delete %>
+<%= link_to "Back to #{current_user.organization.name}", organization_path %>
+
+<% if current_user.role == 'admin' %>
+  <%= link_to "Delete test", project_test_path, method: :delete %>
+<% end %>
 
 <div class="container">
   <h2>Test name : <%= @test.name %></h2>
