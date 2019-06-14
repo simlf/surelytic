@@ -74,6 +74,9 @@
                 <% end %>
               <% else %>
                 <p>There isn't any test yet in <%= project.name %></p>
+                <button type="button" class="btn btn-primary">
+                  <%= link_to 'New test', new_project_test_path(project.id) %>
+                </button>
               <% end %>
             </div>
           <% end %>
