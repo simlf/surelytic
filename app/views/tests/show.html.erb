@@ -1,56 +1,93 @@
 <%= link_to "back to organization page", organization_path %>
-<div class="container">
-  <h2>Test name : <%= @test.name %></h2>
-  <h3>Test type : <%= @test.ga_report_type.capitalize %> </h3>
-  <h3>REGEX used : <%= @test.event_category_regex %> </h3>
+ <div class="container test-results">
+
+    <h2> <%= @test.name %></h2>
+    <h4><%= @test.event_category_regex %></h4>
+    <h4><%= @test.ga_report_type.capitalize  %> </h4>
+      <p> <strong> ------------------------------------------------------</strong></p>
   <% if @last_result == nil %>
-    <p>No result yet 😢 <br>Come back later</p>
+    <p>Sorry, No result yet 😢 <br>Come back later</p>
   <% else %>
-    <table>
+
+
       <tr>
-        <h4>Last run details</h4>
+        <h3>Last run details</h3>
       </tr>
-      <tr>
-        <td>Run date</td>
-        <td><%= @last_result.created_at %></td>
-      </tr>
-      <tr>
-        <td>Total transactions</td>
-        <td><%= @last_result.number_total_values %></td>
-      </tr>
-        <td>Total incorrect transactions </td>
-        <td><%= @last_result.number_incorrect_values %></td>
-      </tr>
-      </tr>
-        <td>delta / previous test run</td>
-        <td> <%= percentage_between_results(@last_result, @before_last_result) %> % soit ecart de <%= diff_between_results(@last_result, @before_last_result) %> transactions
-        </td>
-      </tr>
-        </tr>
-        <td>Top 3 incorrect values</td>
-        <td></td>
-      </tr>
-      </tr>
-        <td>“Moogle Tee White”</td>
-        <td>3 transactions</td>
-      </tr>
-      </tr>
-        <td>“GGGGDSSSS”</td>
-        <td>2 transactions</td>
-      </tr>
-      </tr>
-        <td>“Google Large Tote Canvas”</td>
-        <td>2 transactions</td>
-      </tr>
-      </tr>
-        <td></td>
-        <td>Last 5 runs</td>
-      </tr>
-    </table>
-  <% @test.results.last(5).each do |result| %>
-    <p>--- <%= result.created_at %>---</p>
-    <p>correct values <%= result.number_total_values %> values</p>
-    <p>incorrect values <%= result.number_incorrect_values %> values</p>
+
+
+           <!-- 1. Mobile full-screen, laptop Half-Half -->
+    <!-- <div class="container">
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class=" card date-result">
+            <h4>Run date</h4>
+          </div>
+          <div class="card info">
+              <p><%= @last_result.created_at %></p>
+          </div>
+        </div>
+    </div> -->
+
+          <div class="date-result">
+            <h5>Run date</h5>
+            <p><%= @last_result.created_at %></p>
+          </div>
+
+
+          <div class="results">
+            <div class="first-result">
+              <div class="result-name">
+              <h5>Total transactions</h5>
+              </div>
+              <p><%= @last_result.number_total_values %></p>
+            </div>
+            <div class="first-result">
+              <h5>Total incorrect transactions </h5>
+              <p><%= @last_result.number_incorrect_values %></p>
+            </div>
+            <div class="first-result">
+              <h5>delta / previous test run</h5>
+              <p> <%= percentage_between_results(@last_result, @before_last_result) %> % soit ecart de <%= diff_between_results(@last_result, @before_last_result) %> transactions
+              </p>
+            </div>
+          </div>
+
+
+          <div class="second-result">
+                  <h5>Top 3 incorrect values</h5>
+
+
+                  <h6>“Moogle Tee White”</h6>
+
+                  <p>3 transactions</p>
+
+                  <h6>“GGGGDSSSS”</h§>
+                  <p>2 transactions</p>
+
+                  <h6>“Google Large Tote Canvas”</h6>
+                  <p>2 transactions</p>
+
+        </div>
+
+
+
+        <p>  ------------------------------------------------------ </p>
+        <h3>Last 5 runs</h3>
+
+ <div class="last-result">
+    <% @test.results.last(5).each do |result| %>
+  <div class="last">
+
+      <h5> <%=result.created_at%></h5>
+
+    <h6>correct values </p> <p><%= result.number_total_values %></p>
+    <h6>incorrect values </h6> <p> <%= result.number_incorrect_values %></p>
+</div>
   <% end %>
+
+
 <% end %>
+ </div>
+
 </div>
