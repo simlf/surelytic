@@ -1,3 +1,4 @@
+
 <%= link_to "back to organization page", organization_path %>
  <div class="container test-results">
 
@@ -5,6 +6,18 @@
     <h4><%= @test.event_category_regex %></h4>
     <h4><%= @test.ga_report_type.capitalize  %> </h4>
       <p> <strong> ------------------------------------------------------</strong></p>
+
+<%= link_to "Back to #{current_user.organization.name}", organization_path %>
+
+<% if current_user.role == 'admin' %>
+  <%= link_to "Delete test", project_test_path, method: :delete %>
+<% end %>
+
+<div class="container">
+  <h2>Test name : <%= @test.name %></h2>
+  <h3>Test type : <%= @test.ga_report_type.capitalize %> </h3>
+  <h3>REGEX used : <%= @test.event_category_regex %> </h3>
+
   <% if @last_result == nil %>
     <p>Sorry, No result yet 😢 <br>Come back later</p>
   <% else %>
