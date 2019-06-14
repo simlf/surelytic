@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :projects, only: [:show, :new, :create] do # opt. :index, :edit, :update // :destroy
-    resources :tests, only: [:show, :new, :create, :edit, :update] # opt. // :destroy
+    resources :tests, only: [:show, :new, :create, :edit, :update, :destroy]
   end
 # .opt
 # resource :profile, only: [:show, :edit, :update]

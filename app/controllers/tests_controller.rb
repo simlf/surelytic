@@ -1,4 +1,5 @@
 class TestsController < ApplicationController
+
   def show
     @test = Test.find(params[:id])
     @before_last_result, @last_result = @test.results.order(:created_at).last(2)
@@ -36,6 +37,15 @@ class TestsController < ApplicationController
 
     redirect_to project_path(@project)
   end
+
+  def destroy
+    @project = current_user.projects.find(params[:project_id])
+    @test = @project.tests.find(params[:id])
+    @test.destroy
+
+    redirect_to project_path(@project)
+  end
+
 
   private
 
