@@ -99,7 +99,7 @@ project4 = Project.create!(
 test1 = Test.create!(
   user: user1,
   project: project1,
-  name: 'Event category Edito or technique',
+  name: 'Event category quality',
   frequency: 'daily',
   ga_report_type: 'event',
   event_category_regex:'Éditorial|Technique'
@@ -125,7 +125,7 @@ test3 = Test.create!(
 
 test4 = Test.create!(
   user: user1,
-  project: project1,
+  project: project2,
   name: 'User ID',
   frequency: 'monthly',
   ga_report_type: 'custom dimension',
@@ -136,7 +136,7 @@ test4 = Test.create!(
 
 test5 = Test.create!(
   user: user1,
-  project: project1,
+  project: project2,
   name: 'Product arbo',
   frequency: 'daily',
   ga_report_type: 'custom dimension',
@@ -147,7 +147,7 @@ test5 = Test.create!(
 
 test6 = Test.create!(
   user: user1,
-  project: project1,
+  project: project2,
   name: 'adblocker',
   frequency: 'daily',
   ga_report_type: 'custom dimension',
@@ -158,7 +158,7 @@ test6 = Test.create!(
 
 test7 = Test.create!(
   user: user1,
-  project: project1,
+  project: project3,
   name: 'event category consistency',
   frequency: 'monthly',
   ga_report_type: 'event',
@@ -167,7 +167,7 @@ test7 = Test.create!(
 
 test8 = Test.create!(
   user: user1,
-  project: project1,
+  project: project3,
   name: 'Menu clicks',
   frequency: 'daily',
   ga_report_type: 'event',
@@ -177,7 +177,7 @@ test8 = Test.create!(
 
 test9 = Test.create!(
   user: user1,
-  project: project1,
+  project: project3,
   name: 'Form validation',
   frequency: 'monthly',
   ga_report_type: 'event',
@@ -187,7 +187,7 @@ test9 = Test.create!(
 
 test10 = Test.create!(
   user: user1,
-  project: project1,
+  project: project4,
   name: 'Newsletter subscription',
   frequency: 'monthly',
   ga_report_type: 'goals',
@@ -196,7 +196,7 @@ test10 = Test.create!(
 
 test11 = Test.create!(
   user: user1,
-  project: project1,
+  project: project4,
   name: 'Lead submitted',
   frequency: 'weekly',
   ga_report_type: 'goals',
@@ -205,7 +205,7 @@ test11 = Test.create!(
 
 test12 = Test.create!(
   user: user1,
-  project: project1,
+  project: project4,
   name: 'Add to wishlist',
   frequency: 'weekly',
   ga_report_type: 'goals',
@@ -225,7 +225,7 @@ result1 = Result.create!(
 result2 = Result.create!(
   test: test1,
   correct: false,
-  number_total_values: 1000,
+  number_total_values: 631,
   number_incorrect_values: 12,
   top_incorrect_values: '{abcd,efgh,1234543322}'
   )
@@ -233,7 +233,7 @@ result2 = Result.create!(
 result3 = Result.create!(
   test: test1,
   correct: false,
-  number_total_values: 983,
+  number_total_values: 632,
   number_incorrect_values: 12,
   top_incorrect_values: '{abcd,efgh,1234543322}'
   )
@@ -241,7 +241,7 @@ result3 = Result.create!(
 result4 = Result.create!(
   test: test1,
   correct: true,
-  number_total_values: 612,
+  number_total_values: 660,
   number_incorrect_values: 4,
   top_incorrect_values: '{abcd,efgh,1234543322}'
   )
@@ -249,8 +249,8 @@ result4 = Result.create!(
 result5 = Result.create!(
   test: test1,
   correct: true,
-  number_total_values: 1215,
-  number_incorrect_values: 1215,
+  number_total_values: 631,
+  number_incorrect_values: 15,
   top_incorrect_values: '{abcd,efgh,1234543322}'
   )
 
@@ -258,23 +258,23 @@ result6 = Result.create!(
   test: test1,
   correct: false,
   number_total_values: 631,
-  number_incorrect_values: 0,
+  number_incorrect_values: 22,
   top_incorrect_values: '{abcd,efgh,1234543322}'
   )
 
 result7 = Result.create!(
   test: test1,
   correct: true,
-  number_total_values: 390,
-  number_incorrect_values: 0,
+  number_total_values: 500,
+  number_incorrect_values: 15,
   top_incorrect_values: '{abcd,efgh,1234543322}'
   )
 
 result8 = Result.create!(
   test: test1,
   correct: true,
-  number_total_values: 210,
-  number_incorrect_values: 204,
+  number_total_values: 645,
+  number_incorrect_values: 2,
   top_incorrect_values: '{abcd,efgh,1234543322}'
   )
 
