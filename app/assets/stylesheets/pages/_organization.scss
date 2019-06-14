@@ -14,6 +14,13 @@
   margin-bottom: 50px;
 }
 
+a {
+  color: $white;
+}
+
+a:hover {
+  text-decoration: none;
+}
 // Credits
 
 #credits_display{
@@ -30,19 +37,28 @@
   background: $heavy_blue;
   padding: 20px 30px;
   color: white;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
 }
 
 .credits-box > div:nth-child(2n){
   background: $light_grey;
   padding: 10px 30px;
   border: 1px solid #EAEBE9;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
 }
 
 // Users
+.home-user{
+  margin: 35px;
+}
+
 
 .users_display{
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0px 20px;
 }
 
 .users_display div{
@@ -55,3 +71,46 @@
   border-radius: 25px;
   border: 1px solid #EAEBE9;
 }
+
+// Projects
+
+.projects {
+  padding: 0px 20px;
+}
+
+.project-name {
+  background-color: $heavy_blue;
+  color: white;
+  padding: 35px 20px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.tests-card {
+  background-color: $light_grey;
+  color: black;
+  margin-bottom: 20px;
+  padding: 20px 20px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border: solid $black 0.4px;
+}
+
+.tests-card h6 {
+  margin-left: 45px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-weight: medium;
+  font-size: 24px;
+}
+
+.tests-card-details {
+  margin-left: 65px;
+  font-weight: regular;
+  font-size: 17px;
+}
+
+.tests-card-details i {
+  color: $black;
+}
+

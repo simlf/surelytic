@@ -27,12 +27,14 @@
 
       <div class="orga-section-headline d-flex">
         <h2><i class="fas fa-user-tie"></i> Users</h2>
-        <button type="button" class="btn btn-primary">Add new user</button>
+          <button type="button" class="btn btn-primary">
+        <%= link_to 'New user', new_organization_user_path %>
+          </button>
       </div>
 
       <div class="d-flex users_display">
         <% @organization.users.each do |user| %>
-        <div>
+        <div class="home-user">
           <img src="https://kitt.lewagon.com/placeholder/users/ssaunier">
           <div class="user-card"><%= user.email %></div>
           <div>Edit user info</div>
@@ -49,13 +51,32 @@
         <button type="button" class="btn btn-primary">Create new project</button>
       </div>
 
-      <% @projects.each do |project| %>
-        <h4><%= project.name %>  Tests <%= link_to " Project page", project_path(project) %></h4>
-        <% project.tests.each do |test| %>
-          <p><%= test.name %> | <%= link_to "Test details", project_test_path(project, test) %></p>
-        <% end %>
-      <% end %>
+      <div class="projects">
+          <% @projects.each do |project| %>
+            <div class="project-name">
+              <h4><%= project.name.capitalize %>  Tests <%= link_to " Project page", project_path(project) %>
+              </h4>
+            </div>
 
+            <div class="tests-card">
+              <% if project.tests.exists? %>
+                <% project.tests.each do |test| %>
+                  <h6><%= test.name.capitalize %> | <%= link_to '<i class="far fa-edit"></i>'.html_safe, project_test_path(project, test) %></h6>
+                  <div class="tests-card-details">
+                    <p>
+                      <i class="fas fa-hourglass-half"></i>
+                      <%= test.frequency.capitalize %>
+                    </p>
+                    <p>
+                      <i class="far fa-calendar-alt"></i> <%= test.created_at %>
+                    </p>
+                  </div>
+                <% end %>
+              <% else %>
+                <p>There isn't any test yet in <%= project.name %></p>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
     </div>
-
 </div>
