@@ -16,8 +16,12 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+# Custom Gems
 gem 'google-api-client' # v. 0.11
 gem 'omniauth-google-oauth2' # v. 0.4.1 with Devise
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
+gem 'sidekiq-scheduler'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

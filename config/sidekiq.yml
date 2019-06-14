@@ -1,0 +1,11 @@
+:concurrency: 3
+:timeout: 60
+:verbose: true
+:queues:
+  - default
+  - mailers
+
+:schedule:
+  ga_query_job:
+    cron: '0 * * * * *'
+    class: GaQueryJob

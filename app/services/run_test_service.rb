@@ -7,6 +7,8 @@ class RunTestService
   end
 
   def call
+    p "Starting GA request 💡"
+
     # default values
     api_start_date = 'yesterday'
     api_end_date = 'yesterday'
@@ -94,9 +96,7 @@ class RunTestService
     @result.number_incorrect_values = total_values - correct_values
     @result.test = @test
     @result.save
+    p "end of GA request"
+    p @result
   end
 end
-
-# rails c
-# test = Test.second
-# RunTestService.new(test).call
