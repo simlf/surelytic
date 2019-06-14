@@ -1,10 +1,10 @@
 p 'Starting seed'
 
-Organization.destroy_all
-User.destroy_all
-Test.destroy_all
 Result.destroy_all
+Test.destroy_all
+User.destroy_all
 Project.destroy_all
+Organization.destroy_all
 
 p 'Models destroyed'
 
