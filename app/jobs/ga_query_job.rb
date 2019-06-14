@@ -7,8 +7,8 @@ class GaQueryJob < ApplicationJob
     # test ID as param
     # find test
     # call service
-    # test = Test.second
-    # test = test7
-    RunTestService.new.call
+    test = Test.first
+    # test = test6.9
+    RunTestService.new(test).call
   end
 end
