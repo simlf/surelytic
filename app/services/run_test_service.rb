@@ -8,6 +8,7 @@ class RunTestService
 
   def call
     p "Starting GA request 💡"
+    p "tested test #{@test}"
 
     # default values
     api_start_date = 'yesterday'
@@ -23,24 +24,31 @@ class RunTestService
       api_start_date = '30daysAgo'
     end
 
-    if @test.ga_report_type == 'custom dimension'
-      api_metric = @test.cd_scope
-      api_dimension = "ga:dimension#{@test.cd_index}"
-      api_condition_regex = "ga:dimension#{@test.cd_index}=~#{@test.cd_regex}"
-
-    elsif @test.ga_report_type == 'event'
+    if @test.ga_report_type == 'Event Category'
       api_metric = 'ga:totalEvents'
       api_dimension = 'ga:eventCategory'
       api_condition_regex = "ga:eventCategory=~#{@test.event_category_regex}"
 
-    elsif @test.ga_report_type == 'enhanced e-commerce'
-      api_metric = 'ga:transactions'
-      api_dimension = 'ga:productName'
-      api_condition_regex = "ga:productName=~#{@test.eec_product_name_regex}"
+    elsif @test.ga_report_type == 'Custom Dimension'
+      api_metric = 'ga:pageviews'
+      api_dimension = "ga:dimension#{@test.cd_index}"
+      api_condition_regex = "ga:dimension#{@test.cd_index}=~#{@test.cd_regex}"
 
-    elsif @test.ga_report_type == 'goals'
-      api_metric = "ga:goal#{@test.goal_index}completions"
     end
+
+    # elsif @test.ga_report_type == 'custom dimension'
+    #   api_metric = @test.cd_scope
+    #   api_dimension = "ga:dimension#{@test.cd_index}"
+    #   api_condition_regex = "ga:dimension#{@test.cd_index}=~#{@test.cd_regex}"
+
+    # elsif @test.ga_report_type == 'enhanced e-commerce'
+    #   api_metric = 'ga:transactions'
+    #   api_dimension = 'ga:productName'
+    #   api_condition_regex = "ga:productName=~#{@test.eec_product_name_regex}"
+
+    # elsif @test.ga_report_type == 'goals'
+    #   api_metric = "ga:goal#{@test.goal_index}completions"
+    # end
 
     service = Google::Apis::AnalyticsreportingV4::AnalyticsReportingService.new
     credentials = Google::Auth::ServiceAccountCredentials.make_creds(

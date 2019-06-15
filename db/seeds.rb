@@ -100,8 +100,8 @@ test1 = Test.create!(
   user: user1,
   project: project1,
   name: 'Event category quality',
-  frequency: 'daily',
-  ga_report_type: 'event',
+  frequency: 'minute',
+  ga_report_type: 'Event Category',
   event_category_regex:'Éditorial|Technique'
   )
 
@@ -109,108 +109,108 @@ test2 = Test.create!(
   user: user1,
   project: project1,
   name: 'Event category Edito or technique',
-  frequency: 'daily',
-  ga_report_type: 'event',
+  frequency: 'minute',
+  ga_report_type: 'Event Category',
   event_category_regex:'Pakito|Technique'
   )
 
-test3 = Test.create!(
-  user: user1,
-  project: project1,
-  name: 'Product brand quality',
-  frequency: 'weekly',
-  ga_report_type: 'enhanced e-commerce',
-  eec_product_brand_regex: 'adidas|converse'
-  )
+# test3 = Test.create!(
+#   user: user1,
+#   project: project1,
+#   name: 'Product brand quality',
+#   frequency: 'weekly',
+#   ga_report_type: 'enhanced e-commerce',
+#   eec_product_brand_regex: 'adidas|converse'
+#   )
 
 test4 = Test.create!(
   user: user1,
   project: project2,
-  name: 'User ID',
-  frequency: 'monthly',
-  ga_report_type: 'custom dimension',
-  cd_index: 5,
-  cd_regex: '[0-9]{9}',
-  cd_scope: 'user'
+  name: 'Publication year',
+  frequency: 'minute',
+  ga_report_type: 'Custom Dimension',
+  cd_index: 9,
+  cd_regex: '2106|2017|2018|vide',
+  cd_scope: 'ga:pageviews'
   )
 
-test5 = Test.create!(
-  user: user1,
-  project: project2,
-  name: 'Product arbo',
-  frequency: 'daily',
-  ga_report_type: 'custom dimension',
-  cd_index: 3,
-  cd_regex: '.*/.*',
-  cd_scope: 'hit'
-  )
+# test5 = Test.create!(
+#   user: user1,
+#   project: project2,
+#   name: 'Product arbo',
+#   frequency: 'daily',
+#   ga_report_type: 'custom dimension',
+#   cd_index: 3,
+#   cd_regex: '.*/.*',
+#   cd_scope: 'hit'
+#   )
 
-test6 = Test.create!(
-  user: user1,
-  project: project2,
-  name: 'adblocker',
-  frequency: 'daily',
-  ga_report_type: 'custom dimension',
-  cd_index: 7,
-  cd_regex: 'enabled|disabled',
-  cd_scope: 'session'
-  )
+# test6 = Test.create!(
+#   user: user1,
+#   project: project2,
+#   name: 'adblocker',
+#   frequency: 'daily',
+#   ga_report_type: 'custom dimension',
+#   cd_index: 7,
+#   cd_regex: 'enabled|disabled',
+#   cd_scope: 'session'
+#   )
 
-test7 = Test.create!(
-  user: user1,
-  project: project3,
-  name: 'event category consistency',
-  frequency: 'monthly',
-  ga_report_type: 'event',
-  event_category_regex: 'browsing|ecommerce|menu'
-  )
+# test7 = Test.create!(
+#   user: user1,
+#   project: project3,
+#   name: 'event category consistency',
+#   frequency: 'monthly',
+#   ga_report_type: 'event',
+#   event_category_regex: 'browsing|ecommerce|menu'
+#   )
 
-test8 = Test.create!(
-  user: user1,
-  project: project3,
-  name: 'Menu clicks',
-  frequency: 'daily',
-  ga_report_type: 'event',
-  event_category_regex: 'menu',
-  event_action_regex: 'header|footer'
-  )
+# test8 = Test.create!(
+#   user: user1,
+#   project: project3,
+#   name: 'Menu clicks',
+#   frequency: 'daily',
+#   ga_report_type: 'event',
+#   event_category_regex: 'menu',
+#   event_action_regex: 'header|footer'
+#   )
 
-test9 = Test.create!(
-  user: user1,
-  project: project3,
-  name: 'Form validation',
-  frequency: 'monthly',
-  ga_report_type: 'event',
-  event_category_regex: 'form contact',
-  event_label_regex: 'signin|signup'
-  )
+# test9 = Test.create!(
+#   user: user1,
+#   project: project3,
+#   name: 'Form validation',
+#   frequency: 'monthly',
+#   ga_report_type: 'event',
+#   event_category_regex: 'form contact',
+#   event_label_regex: 'signin|signup'
+#   )
 
-test10 = Test.create!(
-  user: user1,
-  project: project4,
-  name: 'Newsletter subscription',
-  frequency: 'monthly',
-  ga_report_type: 'goals',
-  goal_index: 1
-  )
+# test10 = Test.create!(
+#   user: user1,
+#   project: project4,
+#   name: 'Newsletter subscription',
+#   frequency: 'monthly',
+#   ga_report_type: 'goals',
+#   goal_index: 1
+#   )
 
-test11 = Test.create!(
-  user: user1,
-  project: project4,
-  name: 'Lead submitted',
-  frequency: 'weekly',
-  ga_report_type: 'goals',
-  goal_index: 3
-  )
+# test11 = Test.create!(
+#   user: user1,
+#   project: project4,
+#   name: 'Lead submitted',
+#   frequency: 'weekly',
+#   ga_report_type: 'goals',
+#   goal_index: 3
+#   )
 
-test12 = Test.create!(
-  user: user1,
-  project: project4,
-  name: 'Add to wishlist',
-  frequency: 'weekly',
-  ga_report_type: 'goals',
-  goal_index: 7
-  )
+# test12 = Test.create!(
+#   user: user1,
+#   project: project4,
+#   name: 'Add to wishlist',
+#   frequency: 'weekly',
+#   ga_report_type: 'goals',
+#   goal_index: 7
+#   )
 
 # Results
 
@@ -225,65 +225,65 @@ result1 = Result.create!(
 result2 = Result.create!(
   test: test1,
   correct: false,
-  number_total_values: 631,
-  number_incorrect_values: 12,
-  top_incorrect_values: '{abcd,efgh,1234543322}'
-  )
-
-result3 = Result.create!(
-  test: test1,
-  correct: false,
-  number_total_values: 632,
-  number_incorrect_values: 12,
-  top_incorrect_values: '{abcd,efgh,1234543322}'
-  )
-
-result4 = Result.create!(
-  test: test1,
-  correct: true,
-  number_total_values: 660,
-  number_incorrect_values: 4,
-  top_incorrect_values: '{abcd,efgh,1234543322}'
-  )
-
-result5 = Result.create!(
-  test: test1,
-  correct: true,
-  number_total_values: 631,
-  number_incorrect_values: 15,
-  top_incorrect_values: '{abcd,efgh,1234543322}'
-  )
-
-result6 = Result.create!(
-  test: test1,
-  correct: false,
-  number_total_values: 631,
-  number_incorrect_values: 22,
-  top_incorrect_values: '{abcd,efgh,1234543322}'
-  )
-
-result7 = Result.create!(
-  test: test1,
-  correct: true,
-  number_total_values: 500,
-  number_incorrect_values: 15,
-  top_incorrect_values: '{abcd,efgh,1234543322}'
-  )
-
-result8 = Result.create!(
-  test: test1,
-  correct: true,
-  number_total_values: 645,
-  number_incorrect_values: 2,
-  top_incorrect_values: '{abcd,efgh,1234543322}'
-  )
-
-result9 = Result.create!(
-  test: test1,
-  correct: true,
-  number_total_values: 514,
+  number_total_values: 612,
   number_incorrect_values: 0,
   top_incorrect_values: '{abcd,efgh,1234543322}'
   )
+
+# result3 = Result.create!(
+#   test: test1,
+#   correct: false,
+#   number_total_values: 632,
+#   number_incorrect_values: 12,
+#   top_incorrect_values: '{abcd,efgh,1234543322}'
+#   )
+
+# result4 = Result.create!(
+#   test: test1,
+#   correct: true,
+#   number_total_values: 660,
+#   number_incorrect_values: 4,
+#   top_incorrect_values: '{abcd,efgh,1234543322}'
+#   )
+
+# result5 = Result.create!(
+#   test: test1,
+#   correct: true,
+#   number_total_values: 631,
+#   number_incorrect_values: 15,
+#   top_incorrect_values: '{abcd,efgh,1234543322}'
+#   )
+
+# result6 = Result.create!(
+#   test: test1,
+#   correct: false,
+#   number_total_values: 631,
+#   number_incorrect_values: 22,
+#   top_incorrect_values: '{abcd,efgh,1234543322}'
+#   )
+
+# result7 = Result.create!(
+#   test: test1,
+#   correct: true,
+#   number_total_values: 500,
+#   number_incorrect_values: 15,
+#   top_incorrect_values: '{abcd,efgh,1234543322}'
+#   )
+
+# result8 = Result.create!(
+#   test: test1,
+#   correct: true,
+#   number_total_values: 645,
+#   number_incorrect_values: 2,
+#   top_incorrect_values: '{abcd,efgh,1234543322}'
+#   )
+
+# result9 = Result.create!(
+#   test: test1,
+#   correct: true,
+#   number_total_values: 514,
+#   number_incorrect_values: 0,
+#   top_incorrect_values: '{abcd,efgh,1234543322}'
+#   )
 
 p 'End of seed'
