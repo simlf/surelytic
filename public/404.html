@@ -5,22 +5,133 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
 
-  .error-page {
-    font-size: 100%;
-    color: #40539a;
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
-  }
+    * {
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+    }
+
+    h1 {
+      color:
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    #notfound {
+      position: relative;
+      height: 100vh;
+    }
+
+    #notfound .notfound {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+
+    .notfound {
+      max-width: 520px;
+      width: 100%;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .notfound .notfound-404 {
+      position: relative;
+      height: 240px;
+    }
+
+    .notfound .notfound-404 h1 {
+      font-family: 'Montserrat', sans-serif;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      -webkit-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+      font-size: 252px;
+      font-weight: 900;
+      margin: 0px;
+      color: #262626;
+      text-transform: uppercase;
+      letter-spacing: -40px;
+      margin-left: -20px;
+    }
+
+    .notfound .notfound-404 h1>span {
+      text-shadow: -8px 0px 0px #fff;
+    }
+
+    .notfound .notfound-404 h3 {
+      font-family: 'Cabin', sans-serif;
+      position: relative;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #262626;
+      margin: 0px;
+      letter-spacing: 3px;
+      padding-left: 6px;
+    }
+
+    .notfound h2 {
+      font-family: 'Cabin', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: #000;
+      margin-top: 0px;
+      margin-bottom: 25px;
+    }
+
+    @media only screen and (max-width: 767px) {
+      .notfound .notfound-404 {
+        height: 200px;
+      }
+      .notfound .notfound-404 h1 {
+        font-size: 200px;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      .notfound .notfound-404 {
+        height: 162px;
+      }
+      .notfound .notfound-404 h1 {
+        font-size: 162px;
+        height: 150px;
+        line-height: 162px;
+      }
+      .notfound h2 {
+        font-size: 16px;
+      }
+    }
+
 
   </style>
 </head>
 
-<body class="error-page">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+<body>
+
+<div id="notfound">
+    <div class="notfound">
+      <div class="notfound-404">
+        <h3>Oops! Page not found</h3>
+        <h1 style="color:#40539A;"><span>4</span><span>0</span><span>4</span></h1>
+      </div>
+      <h2>The page you were looking for doesn't exist.</h2>
+      <button onclick="window.location.href = 'http://www.surelytics.tech/';" style="color: #fff;
+background-color: #40539A; padding: .375rem .75rem;
+font-size: 1rem;
+line-height: 1.5;
+border-radius: .25rem;">comeback to the home</button>
     </div>
-    <button>go home</button>
+  </div>
+
 </body>
 </html>
+</div>
