@@ -9,22 +9,19 @@
       </div>
 
       <div id="credits_display" class="d-flex">
-          <div class="credits-box">
-            <div>Monthly credits</div>
-            <div><%= @organization.monthly_credits %></div>
+          <div >
+            <div class="card-header">Monthly credits</div>
+            <div class="card-details-title card-details-title-center"><%= @organization.monthly_credits %></div>
           </div>
 
-          <div class="credits-box">
-            <div>Current credits</div>
-            <div><%= @organization.current_credits %></div>
+          <div>
+            <div class="card-header">Current credits</div>
+            <div class="card-details-title card-details-title-center"><%= @organization.current_credits %></div>
           </div>
       </div>
-
     </div>
 
-
     <div class="orga-section">
-
       <div class="orga-section-headline d-flex">
         <h2><i class="fas fa-user-tie" id="menu-icon"></i> Users</h2>
           <button type="button" class="btn btn-primary">
@@ -41,45 +38,41 @@
         </div>
         <% end%>
       </div>
-
     </div>
 
     <div class="orga-section">
-
       <div class="orga-section-headline d-flex">
         <h2><i class="fas fa-cogs" id="menu-icon"></i> Projects</h2>
         <button type="button" class="btn btn-primary">Create new project</button>
       </div>
 
-      <div class="projects">
-          <% @projects.each do |project| %>
-            <div class="project-name">
-              <h4><%= project.name.capitalize %>  Tests <%= link_to " Project page", project_path(project) %>
-              </h4>
-            </div>
+        <% @projects.each do |project| %>
+          <div class="card-header">
+            <h4><%= project.name.capitalize %>  | <%= link_to '<i class="far fa-eye"></i>'.html_safe, project_path(project) %>
+            </h4>
+          </div>
 
-            <div class="tests-card">
-              <% if project.tests.exists? %>
-                <% project.tests.each do |test| %>
-                  <h6><%= test.name.capitalize %> | <%= link_to '<i class="far fa-edit"></i>'.html_safe, project_test_path(project, test) %></h6>
-                  <div class="tests-card-details">
-                    <p>
-                      <i class="fas fa-hourglass-half"></i>
-                      <%= test.frequency.capitalize %>
-                    </p>
-                    <p>
-                      <i class="far fa-calendar-alt"></i> <%= test.created_at %>
-                    </p>
-                  </div>
-                <% end %>
-              <% else %>
-                <p>There isn't any test yet in <%= project.name %></p>
-                <button type="button" class="btn btn-primary">
-                  <%= link_to 'New test', new_project_test_path(project.id) %>
-                </button>
-              <% end %>
-            </div>
+        <div class="card-details-title">
+          <% if project.tests.exists? %>
+            <% project.tests.each do |test| %>
+              <h6><%= test.name.capitalize %> | <%= link_to '<i class="fas fa-search-plus"></i>'.html_safe, project_test_path(project, test) %> </h6>
+              <div class="card-details-content">
+                <p>
+                  <i class="fas fa-hourglass-half"></i>
+                  <%= test.frequency.capitalize %>
+                </p>
+                <p>
+                  <i class="far fa-calendar-alt"></i> <%= test.created_at %>
+                </p>
+              </div>
+            <% end %>
+          <% else %>
+            <p>There isn't any test yet in <%= project.name %></p>
+            <button type="button" class="btn btn-primary">
+              <%= link_to 'New test', new_project_test_path(project.id) %>
+            </button>
           <% end %>
-      </div>
-    </div>
+        </div>
+      <% end %>
+   </div>
 </div>
