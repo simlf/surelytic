@@ -96,6 +96,13 @@ project4 = Project.create!(
 
 # Tests
 
+# ga_report_type: 'Event Category'
+# ga_report_type: 'Event Action'
+# ga_report_type: 'Event Label'
+# ga_report_type: 'Custom Dimension'
+# ga_report_type: 'Event action'
+# ga_report_type: 'Channel grouping'
+
 test1 = Test.create!(
   user: user1,
   project: project1,
@@ -114,103 +121,41 @@ test2 = Test.create!(
   event_category_regex:'Pakito|Technique'
   )
 
-# test3 = Test.create!(
-#   user: user1,
-#   project: project1,
-#   name: 'Product brand quality',
-#   frequency: 'weekly',
-#   ga_report_type: 'enhanced e-commerce',
-#   eec_product_brand_regex: 'adidas|converse'
-#   )
+test3 = Test.create!(
+  user: user1,
+  project: project1,
+  name: 'Product brand quality',
+  frequency: 'daily',
+  ga_report_type: 'Event Action',
+  event_action_regex: 'Youtube|Visibilité|CMP'
+  )
 
 test4 = Test.create!(
   user: user1,
   project: project2,
   name: 'Publication year',
-  frequency: 'minute',
+  frequency: 'daily',
   ga_report_type: 'Custom Dimension',
   cd_index: 9,
   cd_regex: '2106|2017|2018|vide',
   cd_scope: 'ga:pageviews'
   )
 
-# test5 = Test.create!(
-#   user: user1,
-#   project: project2,
-#   name: 'Product arbo',
-#   frequency: 'daily',
-#   ga_report_type: 'custom dimension',
-#   cd_index: 3,
-#   cd_regex: '.*/.*',
-#   cd_scope: 'hit'
-#   )
+test5 = Test.create!(
+  user: user1,
+  project: project2,
+  name: 'Product ID',
+  frequency: 'weekly',
+  ga_report_type: 'EEC - Product ID',
+  )
 
-# test6 = Test.create!(
-#   user: user1,
-#   project: project2,
-#   name: 'adblocker',
-#   frequency: 'daily',
-#   ga_report_type: 'custom dimension',
-#   cd_index: 7,
-#   cd_regex: 'enabled|disabled',
-#   cd_scope: 'session'
-#   )
-
-# test7 = Test.create!(
-#   user: user1,
-#   project: project3,
-#   name: 'event category consistency',
-#   frequency: 'monthly',
-#   ga_report_type: 'event',
-#   event_category_regex: 'browsing|ecommerce|menu'
-#   )
-
-# test8 = Test.create!(
-#   user: user1,
-#   project: project3,
-#   name: 'Menu clicks',
-#   frequency: 'daily',
-#   ga_report_type: 'event',
-#   event_category_regex: 'menu',
-#   event_action_regex: 'header|footer'
-#   )
-
-# test9 = Test.create!(
-#   user: user1,
-#   project: project3,
-#   name: 'Form validation',
-#   frequency: 'monthly',
-#   ga_report_type: 'event',
-#   event_category_regex: 'form contact',
-#   event_label_regex: 'signin|signup'
-#   )
-
-# test10 = Test.create!(
-#   user: user1,
-#   project: project4,
-#   name: 'Newsletter subscription',
-#   frequency: 'monthly',
-#   ga_report_type: 'goals',
-#   goal_index: 1
-#   )
-
-# test11 = Test.create!(
-#   user: user1,
-#   project: project4,
-#   name: 'Lead submitted',
-#   frequency: 'weekly',
-#   ga_report_type: 'goals',
-#   goal_index: 3
-#   )
-
-# test12 = Test.create!(
-#   user: user1,
-#   project: project4,
-#   name: 'Add to wishlist',
-#   frequency: 'weekly',
-#   ga_report_type: 'goals',
-#   goal_index: 7
-#   )
+test5 = Test.create!(
+  user: user1,
+  project: project2,
+  name: 'Publication year',
+  frequency: 'daily',
+  ga_report_type: 'EEC - Product Name',
+  )
 
 # Results
 

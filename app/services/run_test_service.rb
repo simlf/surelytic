@@ -29,6 +29,11 @@ class RunTestService
       api_dimension = 'ga:eventCategory'
       api_condition_regex = "ga:eventCategory=~#{@test.event_category_regex}"
 
+    elsif @test.ga_report_type == 'Event Action'
+      api_metric = 'ga:totalEvents'
+      api_dimension = 'ga:eventAction'
+      api_condition_regex = "ga:eventAction=~#{@test.event_action_regex}"
+
     elsif @test.ga_report_type == 'Custom Dimension'
       api_metric = 'ga:pageviews'
       api_dimension = "ga:dimension#{@test.cd_index}"
