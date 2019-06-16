@@ -1,59 +1,101 @@
 <%= link_to "back to organization page", organization_path %>
 <div class="container test-results">
-   <div class="row">
+
+
+
+      <div class="container">
+        <div class="img-test"><%= image_tag "analystics.jpg" %></div>
+      </div>
+<div class="row">
     <div class="col-xl-12">
 
-      <h2> <%= @test.name %></h2>
-      <h4><%= @test.event_category_regex %></h4>
-      <h4><%= @test.ga_report_type.capitalize  %> </h4>
+      <h2><%=@test.name %></h2>
+
+      <h3>Test details</h3>
+      <div class="card background">
+      <h4 class=>Regex <br> <i class="fas fa-arrow-circle-down"></i></h4> <p><%= @test.event_category_regex %></p>
+      <h4>Test Google analytics <br> <i class="fas fa-arrow-circle-down"></i></h4> <p><%= @test.ga_report_type.capitalize  %> </p>
+      </div>
 
     <% if @last_result == nil %>
-      <p>Sorry, No result yet 😢 <br>Come back later</p>
+      <p> Sorry,<strong> No result yet</strong> 😢 <br>Come back later</p>
     <% else %>
      </div>
+
   </div>
 
         <br>
         <br>
-  <div class="row">
+         <div class="container">
+        <div class="img-run-detail"><%= image_tag "analytics1.jpg" %></div>
+      </div>
+   <h3>Last run details</h3>
+
    <!--  <div class="col-sm-12"> -->
 
-        <h3>Last run details</h3>
-
-        <div class="results  d-flex ">
-          <div class="first-result">
-            <div class="test-name">
-            <h5>Date</h5>
-            </div>
-            <p><%= @last_result.created_at %></p>
+<div class=" card background">
+    <div class="row">
+      <div class="col-xl-12">
+          <div class="test .d-flex">
+              <div class="date-run d-flex">
+                <div class="card result ">
+                  <div class="title">
+                  <h5><i class="far fa-calendar-alt"></i> Date</h5>
+                  </div>
+                  <p> <i class="far fa-calendar-alt"> </i> <%= @last_result.created_at %></p>
+                </div>
+              </div>
           </div>
+        </div>
+    </div>
 
 
 
 
-
-
-            <div class=" first-result">
-              <div class="test-name">
-              <h5>Total transactions</h5>
+  <div class="row">
+    <div class="col-xl-12">
+            <div class="test .d-flex">
+              <div class="date-run d-flex">
+                <div class="card result ">
+                  <div class="title">
+                  <h5>Total transactions</h5>
+                  </div>
+                  <p><%=  @last_result.number_total_values %></p>
+                </div>
               </div>
-              <p><%= @last_result.number_total_values %></p>
-            </div>
-            <div class="first-result">
-               <div class="test-name">
-              <h5>Total incorrect transactions </h5>
-              </div>
-               <p><%= @last_result.number_incorrect_values %></p>
-            </div>
-            <div class="first-result">
-              <div class="test-name">
-              <h5>delta / previous test run</h5>
-              </div>
-              <p> <%= percentage_between_results(@last_result, @before_last_result) %> % soit ecart de <%= diff_between_results(@last_result, @before_last_result) %> transactions
-              </p>
-            </div>
+          </div>
     </div>
   </div>
+
+
+
+
+
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="test  d-flex justify-content-center">
+                  <div class="card result">
+                     <div class="title">
+                    <h5><i class="fas fa-times"></i> Total incorrect transactions </h5>
+                    </div>
+                    <div class="test-content">
+                     <p><%= @last_result.number_incorrect_values %></p>
+                     </div>
+                  </div>
+                  <div class="card result">
+                    <div class="title">
+                    <h5>delta / previous test run</h5>
+                    </div>
+                    <p> <%= percentage_between_results(@last_result, @before_last_result) %> % <i class="fas fa-arrow-circle-right"></i> [ Ecart de <%= diff_between_results(@last_result, @before_last_result) %> transactions ]
+                    </p>
+                  </div>
+            </div>
+          </div>
+      </div>
+  </div>
+
+
+
 <!-- </div> -->
 
           <!-- <div class="first-result">
@@ -76,16 +118,32 @@
  -->
         <br>
         <br>
-  <div class="row">
 
-                <h3>Last 5 runs</h3>
-                <div class="col-sm-12">
-                <% @test.results.last(5).each do |result| %>
-                <h4><%=result.created_at%></h4>
-                <h6>correct values </p> <p><%= result.number_total_values %></p>
-                <h6>incorrect values </h6> <p> <%= result.number_incorrect_values %></p>
+         <div class="container">
+        <div class="img-5run-detail"><%= image_tag "analytics2.jpg" %></div>
+      </div>
+
+  <h3>Last 5 runs</h3>
+
+  <div class=" card background">
+    <div class="container">
+      <!-- <div class="row"> -->
+        <div class="col-xl-12-">
+          <div class="last-test ">
+            <% @test.results.last(5).each do |result| %>
+              <div class="card result">
+                <h5><i class="far fa-calendar-alt"></i> <%=result.created_at%></h5>
+                <h6><i class="fas fa-check"></i> Correct  values  </h6> <p><%= result.number_total_values %></p>
+                <h6><i class="fas fa-times"></i> Incorrect values </h6> <p><%= result.number_incorrect_values %></p>
+              </div>
                 <% end %>
+
                 <% end %>
-   </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
