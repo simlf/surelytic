@@ -12,7 +12,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
+          <%= link_to '<i class="fas fa-home"></i>'.html_safe, "#", class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= link_to '<i class="far fa-user-circle"></i>'.html_safe, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
