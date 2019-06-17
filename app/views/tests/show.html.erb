@@ -1,13 +1,7 @@
 <%= link_to "back to organization page", organization_path %>
 
-<!-- <script>
-   <% var my_js_object rubystuff %>
-</script> -->
 
 <div class="container test-results">
-
-
-
       <div class="container">
         <div class="img-test"><%= image_tag "analystics.jpg" %></div>
       </div>
@@ -101,39 +95,11 @@
   </div>
 
 
-
-<!-- </div> -->
-
-          <!-- <div class="first-result">
-            <div class="test-name">
-                  <h5>Top 3 incorrect values</h5>
-                  <div/>
-
- <div class="test-name">
-                  <h6>“Moogle Tee White”</h6>
-                   <p>3 transactions</p>
-          <div/>
- <div class="test-name">
-                  <h6>“GGGGDSSSS”</h§>
-                      <div/>
-                <div class="test-name">
-                   <p>2 transactions</p>
-                   <h6>“Google Large Tote Canvas”</h6>
-                  <p>2 transactions</p>
-                </div>
- -->
-        <br>
-        <br>
-
-         <div class="container">
-        <div class="img-5run-detail"><%= image_tag "analytics2.jpg" %></div>
-      </div>
-
   <h3>Last 5 runs</h3>
 
   <div class=" card background">
     <div class="container">
-      <!-- <div class="row"> -->
+      <div class="row">
         <div class="col-xl-12-">
           <div class="last-test ">
             <% @test.results.last(5).each do |result| %>
@@ -142,66 +108,24 @@
                 <h6><i class="fas fa-check"></i> Correct  values  </h6> <p><%= result.number_total_values %></p>
                 <h6><i class="fas fa-times"></i> Incorrect values </h6> <p><%= result.number_incorrect_values %></p>
               </div>
-
                 <% end %>
-
                 <% end %>
-
-
           </div>
+
         </div>
       </div>
     </div>
   </div>
+
+
+
+<canvas
+  id="chart"
+  data-chart-labels="<%= @chart_data_labels.to_json %>"
+  data-chart-incorrect="<%= @chart_data_incorrect.to_json %>"
+  data-chart-correct="<%= @chart_data_correct.to_json %>"
+  >
+  </canvas>
+
 </div>
-
-
-
-<!-- -------------------------------setup chart js-------------------------------- -->
-  <canvas id="myChart" width="400" height="150"></canvas>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-<script>
- var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'bar',
-
-    // The data for our dataset
-    data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [{
-            label: 'Correct values',
-            backgroundColor: 'rgb(125, 186, 122)',
-            // borderColor:'rgba(255, 99, 132, 1)',
-            data: [20, 100, 5, 200, 20, 30, 800],
-            // data : my_js_object
-             },
-             {
-            label: 'Incorrect values',
-            backgroundColor: 'rgb(255, 79, 78)',
-            // borderColor:'rgba(255, 99, 132, 1)',
-            data: [0, 10, 5, 2, 20, 30, 567]
-             }]
-
-
-    },
-
-
-
-    options: {}
-});
-
-
-</script>
-
-
-
-
-
-
-
-
-
-
-
 
