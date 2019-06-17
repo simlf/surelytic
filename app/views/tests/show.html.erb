@@ -13,8 +13,8 @@
 
       <h3>Test details</h3>
       <div class="card background">
-      <h4 class=>Regex <br> <i class="fas fa-arrow-circle-down"></i></h4> <p><%= @test.event_category_regex %></p>
-      <h4>Test Google analytics <br> <i class="fas fa-arrow-circle-down"></i></h4> <p><%= @test.ga_report_type.capitalize  %> </p>
+        <p> Test type : <%= @test.ga_report_type.capitalize %></p>
+        <p> Regex used : "<%= @test.event_category_regex %>"</p>
       </div>
 
     <% if @last_result == nil %>
@@ -84,9 +84,10 @@
                   </div>
                   <div class="card result">
                     <div class="title">
-                    <h5>delta / previous test run</h5>
+                    <h5>Hits delta / previous run</h5>
                     </div>
-                    <p> <%= percentage_between_results(@last_result, @before_last_result) %> % <i class="fas fa-arrow-circle-right"></i> [ Ecart de <%= diff_between_results(@last_result, @before_last_result) %> transactions ]
+                    <p> Absolute : <%= diff_between_results(@last_result, @before_last_result) %> transactions</p>
+                    <p> Percentage : <%= percentage_between_results(@last_result, @before_last_result) %> %
                     </p>
                   </div>
             </div>
