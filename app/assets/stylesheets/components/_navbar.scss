@@ -17,7 +17,7 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width:  340px;
+  width:  277px;
 }
 
 .navbar-lewagon .btn-primary {
@@ -31,11 +31,12 @@
   border-color: $light_grey;
 }
 
-.nav-item .far {
-  font-size: 35px;
+.nav-item .fas {
+  font-size: 29px;
+  color: $black;
 }
 
-.nav-item .fas {
-  font-size: 24px;
+.nav-item img {
+  font-size: 29px;
   color: $heavy_blue;
 }

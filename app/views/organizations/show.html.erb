@@ -3,11 +3,11 @@
   <br>
   <br>
   <br>
-  <h1><%= @organization.name %></h1>
+  <h2><%= @organization.name %></h2>
     <div class="orga-section">
 
       <div class="orga-section-headline d-flex">
-        <h2><i class="fas fa-money-check-alt" id="menu-icon"></i> Credits</h2>
+        <h3><i class="fas fa-money-check-alt" id="menu-icon"></i> Credits</h3>
         <button type="button" class="btn btn-primary">Purchase extra credits</button>
       </div>
 
@@ -26,7 +26,7 @@
 
     <div class="orga-section">
       <div class="orga-section-headline d-flex">
-        <h2><i class="fas fa-user-tie" id="menu-icon"></i> Users</h2>
+        <h3><i class="fas fa-user-tie" id="menu-icon"></i> Users</h3>
           <button type="button" class="btn btn-primary">
         <%= link_to 'New user', new_organization_user_path %>
           </button>
@@ -35,7 +35,7 @@
       <div class="d-flex users_display">
         <% @organization.users.each do |user| %>
         <div class="home-user">
-          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier">
+          <i class="far fa-user-circle"></i>
           <div class="user-card"><%= user.email %></div>
           <div>Edit user info</div>
         </div>
