@@ -8,7 +8,7 @@ class RunTestService
 
   def call
     p "Starting GA request 💡"
-    p "tested test #{@test}"
+    p "tested test #{@test.name}"
 
     # default values
     api_start_date = 'yesterday'
@@ -38,6 +38,11 @@ class RunTestService
       api_metric = 'ga:pageviews'
       api_dimension = "ga:dimension#{@test.cd_index}"
       api_condition_regex = "ga:dimension#{@test.cd_index}=~#{@test.cd_regex}"
+
+    elsif @test.ga_report_type == 'EEC - Product ID'
+      api_metric = 'ga:transactions'
+      api_dimension = 'ga:productName'
+      api_condition_regex = "ga:productName=~#{@test.eec_product_name_regex}"
 
     end
 
@@ -113,3 +118,6 @@ class RunTestService
     p @result
   end
 end
+
+# tst = Test.first
+# RunTestService.new(tst).call

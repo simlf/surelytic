@@ -11,7 +11,7 @@ p 'Models destroyed'
 # Organizations
 
 organization1 = Organization.create!(
-  name: "Douglas, Berge and Hand Web Agency",
+  name: "Surelytics Consulting Agency Corp",
   ga_account_service_id: '1234@gmail.com',
   current_credits: 12,
   monthly_credits: 30
@@ -42,7 +42,7 @@ organization4 = Organization.create!(
 
 user1 = User.create!(
   organization: organization1,
-  email: "judson@ko.info",
+  email: "aristide@surelytics.tech",
   role: 'admin',
   password: 'secret'
   )
@@ -71,43 +71,36 @@ user4 = User.create!(
 # Projects
 
 project1 = Project.create!(
-  name: "Hermann and Sons",
+  name: "Acme Corporation",
   organization: organization1,
   ga_view_id: "148384019"
   )
 
 project2 = Project.create!(
-  name: "Swift-Block",
+  name: "Globex Corporation",
   organization: organization1,
   ga_view_id: "148384019"
   )
 
 project3 = Project.create!(
-  name: "Gerhold-Kirlin",
+  name: "Umbrella Corporation",
   organization: organization1,
   ga_view_id: "148384019"
   )
 
 project4 = Project.create!(
-  name: "Stiedemann and Sons",
+  name: "Hooli",
   organization: organization1,
   ga_view_id: "148384019"
   )
 
 # Tests
 
-# ga_report_type: 'Event Category'
-# ga_report_type: 'Event Action'
-# ga_report_type: 'Event Label'
-# ga_report_type: 'Custom Dimension'
-# ga_report_type: 'Event action'
-# ga_report_type: 'Channel grouping'
-
 test1 = Test.create!(
   user: user1,
   project: project1,
-  name: 'Event category quality',
-  frequency: 'minute',
+  name: '🚀Event category check',
+  frequency: 'daily',
   ga_report_type: 'Event Category',
   event_category_regex:'Éditorial|Technique'
   )
@@ -115,46 +108,97 @@ test1 = Test.create!(
 test2 = Test.create!(
   user: user1,
   project: project1,
-  name: 'Event category Edito or technique',
-  frequency: 'minute',
+  name: 'Event Category Menu or AB Testing',
+  frequency: 'weekly',
   ga_report_type: 'Event Category',
-  event_category_regex:'Pakito|Technique'
+  event_category_regex:'Menu|ABtest'
   )
 
 test3 = Test.create!(
   user: user1,
-  project: project1,
+  project: project3,
   name: 'Product brand quality',
-  frequency: 'daily',
+  frequency: 'weekly',
   ga_report_type: 'Event Action',
   event_action_regex: 'Youtube|Visibilité|CMP'
   )
 
 test4 = Test.create!(
   user: user1,
+  project: project4,
+  name: 'Product brand quality',
+  frequency: 'weekly',
+  ga_report_type: 'Event Action',
+  event_action_regex: 'Top|Bottom|Footer'
+  )
+
+test5 = Test.create!(
+  user: user1,
+  project: project1,
+  name: 'Product brand quality',
+  frequency: 'weekly',
+  ga_report_type: 'Event Action',
+  event_action_regex: 'Active|Inactive|null'
+  )
+
+test6 = Test.create!(
+  user: user1,
   project: project2,
   name: 'Publication year',
-  frequency: 'daily',
+  frequency: 'weekly',
   ga_report_type: 'Custom Dimension',
   cd_index: 9,
   cd_regex: '2106|2017|2018|vide',
   cd_scope: 'ga:pageviews'
   )
 
-test5 = Test.create!(
+test7 = Test.create!(
   user: user1,
-  project: project2,
-  name: 'Product ID',
+  project: project4,
+  name: 'Client category',
   frequency: 'weekly',
-  ga_report_type: 'EEC - Product ID',
+  ga_report_type: 'Custom Dimension',
+  cd_index: 6,
+  cd_regex: 'client|prospect|unknown',
+  cd_scope: 'ga:pageviews'
   )
 
-test5 = Test.create!(
+test8 = Test.create!(
+  user: user1,
+  project: project1,
+  name: 'Shipping method',
+  frequency: 'weekly',
+  ga_report_type: 'Custom Dimension',
+  cd_index: 3,
+  cd_regex: 'quick|slow',
+  cd_scope: 'ga:pageviews'
+  )
+
+test9 = Test.create!(
   user: user1,
   project: project2,
-  name: 'Publication year',
-  frequency: 'daily',
+  name: 'Product Name',
+  frequency: 'weekly',
   ga_report_type: 'EEC - Product Name',
+  eec_product_id_regex: '{0-9}[5]'
+  )
+
+test10 = Test.create!(
+  user: user1,
+  project: project3,
+  name: 'Product Name',
+  frequency: 'weekly',
+  ga_report_type: 'EEC - Product Name',
+  eec_product_id_regex: 'Shoes|Shirts'
+  )
+
+test11 = Test.create!(
+  user: user1,
+  project: project4,
+  name: 'Product Name',
+  frequency: 'weekly',
+  ga_report_type: 'EEC - Product Name',
+  eec_product_id_regex: 'abcd'
   )
 
 # Results
@@ -163,72 +207,49 @@ result1 = Result.create!(
   test: test1,
   correct: false,
   number_total_values: 631,
-  number_incorrect_values: 12,
-  top_incorrect_values: '{abcd,efgh,1234543322}'
+  number_incorrect_values: 12
   )
 
 result2 = Result.create!(
   test: test1,
   correct: false,
   number_total_values: 612,
-  number_incorrect_values: 0,
-  top_incorrect_values: '{abcd,efgh,1234543322}'
+  number_incorrect_values: 0
   )
 
-# result3 = Result.create!(
-#   test: test1,
-#   correct: false,
-#   number_total_values: 632,
-#   number_incorrect_values: 12,
-#   top_incorrect_values: '{abcd,efgh,1234543322}'
-#   )
+result3 = Result.create!(
+  test: test1,
+  correct: false,
+  number_total_values: 598,
+  number_incorrect_values: 4
+  )
 
-# result4 = Result.create!(
-#   test: test1,
-#   correct: true,
-#   number_total_values: 660,
-#   number_incorrect_values: 4,
-#   top_incorrect_values: '{abcd,efgh,1234543322}'
-#   )
+result4 = Result.create!(
+  test: test1,
+  correct: false,
+  number_total_values: 662,
+  number_incorrect_values: 18
+  )
 
-# result5 = Result.create!(
-#   test: test1,
-#   correct: true,
-#   number_total_values: 631,
-#   number_incorrect_values: 15,
-#   top_incorrect_values: '{abcd,efgh,1234543322}'
-#   )
+result5 = Result.create!(
+  test: test1,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 8
+  )
 
-# result6 = Result.create!(
-#   test: test1,
-#   correct: false,
-#   number_total_values: 631,
-#   number_incorrect_values: 22,
-#   top_incorrect_values: '{abcd,efgh,1234543322}'
-#   )
+result6 = Result.create!(
+  test: test1,
+  correct: false,
+  number_total_values: 617,
+  number_incorrect_values: 2
+  )
 
-# result7 = Result.create!(
-#   test: test1,
-#   correct: true,
-#   number_total_values: 500,
-#   number_incorrect_values: 15,
-#   top_incorrect_values: '{abcd,efgh,1234543322}'
-#   )
-
-# result8 = Result.create!(
-#   test: test1,
-#   correct: true,
-#   number_total_values: 645,
-#   number_incorrect_values: 2,
-#   top_incorrect_values: '{abcd,efgh,1234543322}'
-#   )
-
-# result9 = Result.create!(
-#   test: test1,
-#   correct: true,
-#   number_total_values: 514,
-#   number_incorrect_values: 0,
-#   top_incorrect_values: '{abcd,efgh,1234543322}'
-#   )
+result7 = Result.create!(
+  test: test1,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 1
+  )
 
 p 'End of seed'
