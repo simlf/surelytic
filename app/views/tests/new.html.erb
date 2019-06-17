@@ -10,40 +10,53 @@
       [['Daily', 'daily'],
       ['Weekly', 'weekly'],
       ['Monthly', 'monthly']],
-      :label => "What's the frequency of your test?"
+      :label => "At which freqyency should your test run?"
     %>
 
     <%= f.input :ga_report_type, as: :select, collection:
-      [['Enhanced e-commerce', 'eec'],
-      ['Events', 'events'],
-      ['Goals', 'goals'],
-      ['Custom dimensions', 'cd']],
+      # [['Enhanced e-commerce', 'eec'],
+      # ['Events', 'events'],
+      # ['Goals', 'goals'],
+      # ['Custom dimensions', 'cd']],
+      [['Event Category', 'event_category'],
+      ['Event Action', 'event_action'],
+      ['Event Label', 'event_label'],
+      ['Custom Dimension', 'custom_dimension'],
+      ['EEC - Product ID', 'product_id'],
+      ['EEC - Product Name', 'product_name'],
+      ['EEC - Product Brand', 'product_brand']],
       :label => "What's the type of your test?",
       wrapper_html: { id: 'password' }
     %>
 
-    <div class="test_selector" id="eec">
-      <%= f.input  :eec_product_name_regex, placeholder: '', :label => "Product name (Regex)"  %>
-      <%= f.input  :eec_product_id_regex, placeholder: '', :label => "Product ID (regex)"  %>
-      <%= f.input  :eec_product_category_regex, placeholder: '', :label => "Product category (regex)"  %>
-      <%= f.input  :eec_product_brand_regex, placeholder: '', :label => "Product brand (regex)"  %>
+    <div class="test_selector" id="event_category">
+      <%= f.input  :event_category_regex, placeholder: '', :label => "Event Category (Regex)"  %>
     </div>
 
-    <div class='test_selector' id="cd">
+    <div class="test_selector" id="event_action">
+      <%= f.input  :event_action_regex, placeholder: '', :label => "Event Action (Regex)"  %>
+    </div>
+
+    <div class="test_selector" id="event_label">
+      <%= f.input  :event_label_regex, placeholder: '', :label => "Event Label (Regex)"  %>
+    </div>
+
+    <div class="test_selector" id="product_id">
+      <%= f.input  :eec_product_id_regex, placeholder: '', :label => "Product ID (Regex)"  %>
+    </div>
+
+    <div class="test_selector" id="product_brand">
+      <%= f.input  :eec_product_brand_regex, placeholder: '', :label => "Product Brand (Regex)"  %>
+    </div>
+
+    <div class="test_selector" id="product_name">
+      <%= f.input  :eec_product_brand_regex, placeholder: '', :label => "Product Name (Regex)"  %>
+    </div>
+
+    <div class="test_selector" id="custom_dimension">
+      <%= f.input  :cd_regex, placeholder: '', :label => "Custom dimension (Regex)"  %>
       <%= f.input  :cd_index, placeholder: '', :label => "Custom dimension Index"  %>
-      <%= f.input  :cd_regex, placeholder: '', :label => "Values"  %>
-      <%= f.input  :cd_scope, placeholder: '', :label => "Custom dimension scope"  %>
-    </div>
-
-
-    <div class="test_selector" id="events">
-      <%= f.input  :event_category_regex, placeholder: '', :label => "Event Category (regex)"  %>
-      <%= f.input  :event_action_regex, placeholder: '', :label => "Event Action (regex)"  %>
-      <%= f.input  :event_label_regex, placeholder: '', :label => "Event Label (regex)"  %>
-    </div>
-
-    <div class="test_selector" id="goals">
-      <%= f.input  :goal_index, placeholder: '', :label => "regex goal_index"  %>
+      <%= f.input  :cd_scope, placeholder: '', :label => "Custom dimension Scope"  %>
     </div>
 
     <%= f.button :submit, 'Create test', class: 'btn btn-primary' %>
