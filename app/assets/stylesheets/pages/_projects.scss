@@ -36,8 +36,22 @@
   color: #FF443A;
 }
 
-.fa-plus-circle {
+.fa-check-circle {
+  font-size: 60px;
+  padding: 10px 10px;
+  text-align: center;
   color: $heavy_blue;
+}
+
+.fa-history {
+  font-size: 60px;
+  padding: 10px 10px;
+  text-align: center;
+  color: $light_blue;
+}
+
+.card-project:hover .fa-check-circle {
+  color: $white;
 }
 
 .background {
