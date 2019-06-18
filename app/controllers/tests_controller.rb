@@ -1,7 +1,12 @@
 class TestsController < ApplicationController
   def show
     @test = Test.find(params[:id])
-    @before_last_result, @last_result = @test.results.order(:created_at).last(2)
+
+    if @test.results.size >= 1
+      @last_result = @test.results.last
+      @before_last_result = @test.results[-2] if @test.results.size >= 2
+    end
+
     @chart_data_labels = []
     @chart_data_correct = []
     @chart_data_incorrect = []
@@ -10,11 +15,6 @@ class TestsController < ApplicationController
       @chart_data_correct.push(result.number_total_values)
       @chart_data_incorrect.push(-result.number_incorrect_values)
       @chart_data_labels.push(result.updated_at.strftime("%m/%d/%Y"))
-    end
-
-    unless @last_result
-      @last_result        = @before_last_result
-      @before_last_result = nil
     end
   end
 

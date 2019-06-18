@@ -1,11 +1,10 @@
 
 
-<% if @last_result == nil %>
-  <p> Sorry,<strong> No result yet</strong> 😢 <br>Come back later</p>
-<% else %>
+<div class="container test-results">
+  <% if @last_result == nil %>
+    <p> Sorry,<strong> No result yet</strong> 😢 <br>Come back later</p>
+  <% else %>
 
-
-  <div class="container test-results">
     <div class="container">
       <div class="img-test"><%= image_tag "analystics.jpg" %></div>
     </div>
@@ -84,9 +83,14 @@
                 <h5>Hits delta / previous run</h5>
               </div>
 
-              <p> Absolute : <%= diff_between_results(@last_result, @before_last_result) %> transactions</p>
-              <p> Percentage : <%= percentage_between_results(@last_result, @before_last_result) %> %
-              </p>
+              <% if @before_last_result %>
+                <p> Absolute : <%= diff_between_results(@last_result, @before_last_result) %> transactions</p>
+                <p> Percentage : <%= percentage_between_results(@last_result, @before_last_result) %> %
+                </p>
+              <% else %>
+                <p>Only one run, no comparison 🤷‍♂️</p>
+              <% end %>
+
             </div>
           </div>
         </div>
@@ -104,9 +108,9 @@
     data-chart-correct="<%= @chart_data_correct.to_json %>"
     >
     </canvas>
-  </div>
+  <% end %>
+</div>
 
-<% end %>
 
 
 
