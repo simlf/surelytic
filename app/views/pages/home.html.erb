@@ -25,9 +25,9 @@
 
   <div class="ligne2">
     <div class="sub-block">
-      <h2>U still check GA data manually?</h2>
+      <h2>Are you still checking your GA data manually?</h2>
       <p>Surelytics is the best tool to manage your analytics tests and run data quality tests.</p>
-      <button type="button" class="btn btn-primary">Start now</button>
+      <%= link_to "Start now", new_user_registration_path, class: "btn btn-primary"  %>
     </div>
     <div class="image-block">
       <%= image_tag "surelytics_homeboy.png",  :class => "style_image"%>
@@ -43,7 +43,7 @@
           <h3>FREE</h3>
           <%= image_tag "free.svg", :class => "price_img"  %>
           <p>15 Credits / month to play with Surelytics</p>
-          <button type="button" class="btn btn-primary">Try free</button>
+           <%= link_to "Try free", new_user_registration_path, class: "btn btn-primary"  %>
         </div>
       </div>
       <div class="carding-home">
@@ -51,7 +51,7 @@
           <h3>PRO</h3>
           <%= image_tag "pro.svg", :class => "price_img" %>
           <p>50€/month for 100 tests <br> Buy credits on demand</p>
-          <button type="button" class="btn btn-primary">Get started</button>
+           <%= link_to "Get started", new_user_registration_path, class: "btn btn-primary"  %>
         </div>
       </div>
       <div class="carding-home">
@@ -59,7 +59,7 @@
           <h3>AGENCY</h3>
           <%= image_tag "agency.svg", :class => "price_img" %>
           <p>Custom plans to best serve your clients</p>
-          <button type="button" class="btn btn-primary">Contact us</button>
+          <%= link_to "Contact us", new_user_registration_path, class: "btn btn-primary" %>
         </div>
       </div>
     </div>
