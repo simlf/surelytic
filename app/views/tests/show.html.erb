@@ -1,8 +1,4 @@
-
-
-
 <%= link_to "Back to #{current_user.organization.name}", organization_path, class:"btn btn-warning" %>
-
 
 <% if @last_result == nil %>
   <p> Sorry,<strong> No result yet</strong> 😢 <br>Come back later</p>
@@ -40,7 +36,7 @@
           </div>
 
   <div class="container test-results d-flex">
-    <div class=" cards">
+    <div class=" cards-results">
 
           <div class="card card-test title ">
 
@@ -58,7 +54,7 @@
           <h4> <%= @last_result.number_incorrect_values %> </h4>
           <p>Total incorrect transactions</p>
 
-      
+
         </div>
 
         <div class="card card-project card-test ">
