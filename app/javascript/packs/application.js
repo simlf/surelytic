@@ -46,7 +46,7 @@ window.onload = function() {
     options: {
       title: {
         display: true,
-        text: 'Previous 5 runs results'
+        // text: 'Previous 5 runs results'
       },
       tooltips: {
         mode: 'index',

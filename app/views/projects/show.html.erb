@@ -15,7 +15,7 @@
               <% else %>
                 <h6><%= test.name %></h6>
             <% end %>
-            <p><i class="far fa-calendar-alt"></i> <%= test.updated_at %></p>
+            <p><i class="far fa-calendar-alt"></i> <%= test.updated_at.strftime"%d %B %Y at %H:%M" %></p>
             <i class="far fa-times-circle"></i>
             <button class="btn btn-primary">See report</button>
           </div>
