@@ -1,131 +1,107 @@
 <%= link_to "back to organization page", organization_path %>
 
+<% if @last_result == nil %>
+  <p> Sorry,<strong> No result yet</strong> 😢 <br>Come back later</p>
+<% else %>
 
-<div class="container test-results">
-      <div class="container">
-        <div class="img-test"><%= image_tag "analystics.jpg" %></div>
-      </div>
-<div class="row">
-    <div class="col-xl-12">
+  <div class="container test-results">
+    <div class="container">
+      <div class="img-test"><%= image_tag "analystics.jpg" %></div>
+    </div>
 
-      <h2><%=@test.name %></h2>
-
-      <h3>Test details</h3>
-      <div class="card background">
-        <p> Test type : <%= @test.ga_report_type.capitalize %></p>
-        <p> Regex used : "<%= @test.event_category_regex %>"</p>
-      </div>
-
-    <% if @last_result == nil %>
-      <p> Sorry,<strong> No result yet</strong> 😢 <br>Come back later</p>
-    <% else %>
-     </div>
-
-  </div>
-
-        <br>
-        <br>
-         <div class="container">
-        <div class="img-run-detail"><%= image_tag "analytics1.jpg" %></div>
-      </div>
-   <h3>Last run details</h3>
-
-   <!--  <div class="col-sm-12"> -->
-
-<div class=" card background">
     <div class="row">
       <div class="col-xl-12">
+        <h2><%=@test.name %></h2>
+        <h3>Test details</h3>
+          <div class="card background">
+            <p> Test type : <%= @test.ga_report_type.capitalize %></p>
+            <p> Regex used : "<%= @test.event_category_regex %>"</p>
+          </div>
+      </div>
+    </div>
+
+    <br>
+    <br>
+    <div class="container">
+      <div class="img-run-detail"><%= image_tag "analytics1.jpg" %></div>
+    </div>
+
+    <h3>Last run details</h3>
+
+    <div class=" card background">
+      <div class="row">
+        <div class="col-xl-12">
           <div class="test .d-flex">
-              <div class="date-run d-flex">
-                <div class="card result ">
-                  <div class="title">
+            <div class="date-run d-flex">
+              <div class="card result ">
+                <div class="title">
                   <h5><i class="far fa-calendar-alt"></i> Date</h5>
-                  </div>
-                  <p> <i class="far fa-calendar-alt"> </i> <%= @last_result.created_at %></p>
                 </div>
+                <p>
+                  <i class="far fa-calendar-alt"> </i> <%= @last_result.created_at %>
+                </p>
               </div>
+            </div>
           </div>
         </div>
-    </div>
+      </div>
 
-
-
-
-  <div class="row">
-    <div class="col-xl-12">
-            <div class="test .d-flex">
-              <div class="date-run d-flex">
-                <div class="card result ">
-                  <div class="title">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="test .d-flex">
+            <div class="date-run d-flex">
+              <div class="card result ">
+                <div class="title">
                   <h5>Total transactions</h5>
-                  </div>
-                  <p><%=  @last_result.number_total_values %></p>
                 </div>
+                <p><%= @last_result.number_total_values %></p>
               </div>
+            </div>
           </div>
-    </div>
-  </div>
-
-
-
-
+        </div>
+      </div>
 
       <div class="row">
         <div class="col-xl-12">
           <div class="test  d-flex justify-content-center">
-                  <div class="card result">
-                     <div class="title">
-                    <h5><i class="fas fa-times"></i> Total incorrect transactions </h5>
-                    </div>
-                    <div class="test-content">
-                     <p><%= @last_result.number_incorrect_values %></p>
-                     </div>
-                  </div>
-                  <div class="card result">
-                    <div class="title">
-                    <h5>Hits delta / previous run</h5>
-                    </div>
-                    <p> Absolute : <%= diff_between_results(@last_result, @before_last_result) %> transactions</p>
-                    <p> Percentage : <%= percentage_between_results(@last_result, @before_last_result) %> %
-                    </p>
-                  </div>
+            <div class="card result">
+              <div class="title">
+                <h5><i class="fas fa-times"></i> Total incorrect transactions </h5>
+              </div>
+              <div class="test-content">
+                <p><%= @last_result.number_incorrect_values %></p>
+              </div>
+            </div>
+
+            <div class="card result">
+              <div class="title">
+                <h5>Hits delta / previous run</h5>
+              </div>
+
+              <p> Absolute : <%= diff_between_results(@last_result, @before_last_result) %> transactions</p>
+              <p> Percentage : <%= percentage_between_results(@last_result, @before_last_result) %> %
+              </p>
             </div>
           </div>
-      </div>
-  </div>
-
-
-  <h3>Last 5 runs</h3>
-
-  <div class=" card background">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-12-">
-          <div class="last-test ">
-            <% @test.results.last(5).each do |result| %>
-              <div class="card result">
-                <h5><i class="far fa-calendar-alt"></i> <%=result.created_at%></h5>
-                <h6><i class="fas fa-check"></i> Correct  values  </h6> <p><%= result.number_total_values %></p>
-                <h6><i class="fas fa-times"></i> Incorrect values </h6> <p><%= result.number_incorrect_values %></p>
-              </div>
-                <% end %>
-                <% end %>
-          </div>
-
         </div>
       </div>
+
     </div>
+
+
+    <h3>Last 5 runs</h3>
+
+    <canvas
+    id="chart"
+    data-chart-labels="<%= @chart_data_labels.to_json %>"
+    data-chart-incorrect="<%= @chart_data_incorrect.to_json %>"
+    data-chart-correct="<%= @chart_data_correct.to_json %>"
+    >
+    </canvas>
   </div>
 
+<% end %>
 
 
-<canvas
-  id="chart"
-  data-chart-labels="<%= @chart_data_labels.to_json %>"
-  data-chart-incorrect="<%= @chart_data_incorrect.to_json %>"
-  data-chart-correct="<%= @chart_data_correct.to_json %>"
-  >
-  </canvas>
 
-</div>
 
