@@ -12,7 +12,7 @@
         <% unless test.results.last.correct %>
           <div class="card card-project">
             <h6><%= test.name %></h6>
-            <p><i class="far fa-calendar-alt"></i> <%= test.updated_at %></p>
+            <p><i class="far fa-calendar-alt"></i> <%= test.updated_at.strftime"%d %B %Y at %H:%M" %></p>
             <i class="far fa-times-circle"></i>
             <button class='btn btn-primary'><%= link_to "See report", project_test_path(@project, test) %></button>
           </div>

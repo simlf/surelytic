@@ -61,7 +61,7 @@
                   <%= test.frequency.capitalize %>
                 </p>
                 <p>
-                  <i class="far fa-calendar-alt"></i> <%= test.created_at %>
+                  <i class="far fa-calendar-alt"></i> <%= test.created_at.strftime"%d %B %Y at %H:%M" %>
                 </p>
               </div>
             <% end %>

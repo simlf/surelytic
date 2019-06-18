@@ -1,68 +1,25 @@
 .test-results {
- text-align: center;
-
-.img-test{
-  margin-top: 80px;
-
-}
-
-.img-run-detail{
- margin-bottom: 13px;
- margin-top: 20px;
-}
-
-.img-5run-detail{
-
-     margin-bottom: 13px;
-    margin-top: 20px;
-
-}
-
-  h2 {
-  color:$heavy_blue;
-  margin-top: 20px;
-  margin-bottom: 33px;
- }
-
- h4 {
-  color:$heavy_blue;
-  margin-bottom: 28PX;
-
- }
-
- h5, h3{
-     margin-bottom: 11PX;
-    font-weight: lighter;
-    color: white;
-    padding: 14PX;
-    background-color:$heavy_blue;
     text-align: center;
-    padding: 9PX;
+    margin-bottom: 100px;
+    height: 150px;
+    margin-top: 91PX;
+
+
+ .position-h5{
+  margin: 45PX;
+  color:$heavy_blue;
 
  }
-
-
-
- p, h6{
-    // color:$heavy_blue;
-    color:#1647FB;
-    // color:orange;
-    font-weight: bold;
-    font-weight: regular;
-    font-size: 17px;
-    padding: 7PX;
-  text-align:center;
- }
-
-
-.test-content {
-
-    /* margin-left: 5px; */
-    font-weight: regular;
-    font-size: 17px;
-    text-align: center;
-
+ .card-test{
+    //   margin-bottom: 150PX;
+    // margin-top: 100PX;
 }
+ .title{
+  padding: 20px 20px;
+  justify-content: center;
+
+ }
+
 
 
 
@@ -71,63 +28,66 @@
 //---------------- Last run details ---------------------------
 
 
-.date-run {
-    justify-content: center;
-    margin-bottom: 24PX;
-
-  }
-
  .background {
     background-color:$light_grey;
-    padding: 25PX;
+    padding: 25px;
 }
+.background-test {
+  margin-bottom:40px;
+  background-color:$light_grey;
+  padding: 25px;
 
+
+}
 //---------------- 5 Last run  ---------------------------
 
-.last-test{
-      margin: 26px 123PX;
-}
+ .position-h4{
 
+  color:$heavy_blue;
+  text-align: center;
 
-
-
-.result {
-      margin: 5PX;
-      padding: 0px;
-      margin-bottom: 25PX;
-
-  p{
-    // color:$heavy_blue;
-    color:#1647FB;
-    // color:orange;
-    font-weight: bold;
-    font-weight: regular;
-    font-size: 17px;
-    padding: 7PX;
-  }
-
-// ------------------------Icon--------------------------
-.fa-check {
-  color:green;
-}
-.fa-times {
-  color:red;
-}
-
-.fa-arrow-circle-right{
-  color:black;
-}
-
-.fa-calendar-alt {
-  color: white;
  }
-.fa-vial{
-color:black;
+
+
+.last-test{
+      margin: 26px 123px;
 }
 
+
+
+.head-results{
+  text-align: center;
+  margin-bottom: 40px;
+  height: 150px;
+   border-bottom: 1px solid $heavy_blue;
+
+  .img-one{
+      margin-top: 100px;
+  }
 }
 
+.info-results{
+  text-align: center;
+  margin-bottom: 30px;
+  height: 150px;
+  margin-top: 100px;
+  border-bottom: 1px solid $heavy_blue;
 
+p {
+  color:$heavy_blue;
+}
+}
 
+.edit{
+      display: contents;
+}
 
+.btn-edits {
+  margin-left: 5px;
+}
 
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}

@@ -1,4 +1,8 @@
-<%= link_to "back", project_path(params[:project_id]) %>
+<div class="btn-edits">
+  <button type="button" class="btn btn-warning">
+  <%= link_to "Tests", project_path(params[:project_id]) %>
+  </button>
+  </div>
 <div class="container">
 
   <h1>Edit <%= @test.name %> test!</h1>
