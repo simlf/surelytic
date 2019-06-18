@@ -9,7 +9,6 @@
   padding: 20px 20px;
   justify-content: center;
   color: $black;
-  // height: 246px;
 }
 
 .card-project a {
@@ -42,6 +41,13 @@
   padding: 10px 10px;
   text-align: center;
   color: $heavy_blue;
+}
+
+.fa-history {
+  font-size: 60px;
+  padding: 10px 10px;
+  text-align: center;
+  color: $light_blue;
 }
 
 .card-project:hover .fa-check-circle {
