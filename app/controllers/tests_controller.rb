@@ -1,10 +1,17 @@
 class TestsController < ApplicationController
-
   def show
     @test = Test.find(params[:id])
     @before_last_result, @last_result = @test.results.order(:created_at).last(2)
+    @chart_data_labels = []
+    @chart_data_correct = []
+    @chart_data_incorrect = []
 
-    # si on a que 1 result, il se retouve en before last alors on le remet en last
+    @test.results.last(5).each do |result|
+      @chart_data_correct.push(result.number_total_values)
+      @chart_data_incorrect.push(-result.number_incorrect_values)
+      @chart_data_labels.push(result.updated_at.strftime("%m/%d/%Y"))
+    end
+
     unless @last_result
       @last_result        = @before_last_result
       @before_last_result = nil
@@ -45,7 +52,6 @@ class TestsController < ApplicationController
 
     redirect_to project_path(@project)
   end
-
 
   private
 
