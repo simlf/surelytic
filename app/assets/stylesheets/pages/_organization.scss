@@ -10,7 +10,6 @@
 }
 
 .orga-section{
-  border-bottom: 1px solid grey;
   padding: 30px 0px;
 }
 
@@ -91,4 +90,44 @@ a:hover {
 
 .card-header .far {
   color: $light_grey;
+}
+
+.card_orga {
+  width: 490px;
+  padding: 20px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #FFFBFB;
+  background-clip: border-box;
+  border: 1px solid rgba(44, 56, 72, 0.125);
+  border-radius: 5px;
+}
+
+.project-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.boxed {
+  width: 450px;
+}
+
+.fake_image {
+ width: 900px;
+ height: 500px;
+ margin: auto;
+}
+
+.box-user {
+  padding-left: 10px;
+  border-left: 4px solid rgba(44, 59, 87, 1);
+}
+
+.box {
+  display: flex;
+  justify-content: space-around;
 }
