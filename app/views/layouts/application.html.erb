@@ -6,6 +6,15 @@
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-142331206-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-142331206-1');
+    </script>
+
     <!-- Facebook Open Graph data -->
     <meta property="og:title" content="<%= meta_title %>" />
     <meta property="og:type" content="website" />

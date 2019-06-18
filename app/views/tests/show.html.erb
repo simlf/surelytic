@@ -1,6 +1,7 @@
 
-<%= link_to "back to organization page", organization_path %>
 
+
+<%= link_to "Back to #{current_user.organization.name}", organization_path, class:"btn btn-warning" %>
 
 
 <% if @last_result == nil %>
@@ -19,6 +20,7 @@
           </button>
           </div>
         </h2>
+
       </div>
     </div>
   </div>
@@ -55,6 +57,8 @@
         <div class="card card-project card-test ">
           <h4> <%= @last_result.number_incorrect_values %> </h4>
           <p>Total incorrect transactions</p>
+
+      
         </div>
 
         <div class="card card-project card-test ">
@@ -79,13 +83,6 @@
   </div>
 </div>
   <% end %>
-
-
-
-
-
-
-
 
 
 

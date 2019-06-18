@@ -2,15 +2,25 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+  margin-top: 17px;
 }
 
 .card-project {
   padding: 20px 20px;
   justify-content: center;
+  color: $black;
 }
 
-.card-project button {
+.card-project a {
   align-items: center;
+  color: $black;
+}
+
+.card-project:hover .btn-primary {
+    background-color: $light_grey;
+    border-color: #0085aa;
+    transition: all 0.3s;
+    color: $light_blue;
 }
 
 .card-project:hover {
@@ -18,15 +28,32 @@
   color: $white;
 }
 
-.card-project:hover .btn-primary {
-    background-color: $light_grey;
-    border-color: #0085aa;
-    transition: all 0.3s;
-}
 
 .fa-times-circle {
   font-size: 60px;
   padding: 10px 10px;
   text-align: center;
   color: #FF443A;
+}
+
+.fa-check-circle {
+  font-size: 60px;
+  padding: 10px 10px;
+  text-align: center;
+  color: $heavy_blue;
+}
+
+.fa-history {
+  font-size: 60px;
+  padding: 10px 10px;
+  text-align: center;
+  color: $light_blue;
+}
+
+.card-project:hover .fa-check-circle {
+  color: $white;
+}
+
+.background {
+  margin-top: 20px;
 }
