@@ -9,6 +9,7 @@
   padding: 20px 20px;
   justify-content: center;
   color: $black;
+  // height: 246px;
 }
 
 .card-project a {
@@ -36,8 +37,15 @@
   color: #FF443A;
 }
 
-.fa-plus-circle {
+.fa-check-circle {
+  font-size: 60px;
+  padding: 10px 10px;
+  text-align: center;
   color: $heavy_blue;
+}
+
+.card-project:hover .fa-check-circle {
+  color: $white;
 }
 
 .background {
