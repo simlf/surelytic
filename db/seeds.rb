@@ -68,6 +68,12 @@ user4 = User.create!(
   password: 'secret'
   )
 
+user5 = User.create!(
+  organization: organization1,
+  email: "user@mail.com",
+  role: 'admin',
+  password: 'secret'
+  )
 # Projects
 
 project1 = Project.create!(
@@ -203,6 +209,8 @@ test11 = Test.create!(
 
 # Results
 
+  # Results from the 1st test
+
 result1 = Result.create!(
   test: test1,
   correct: false,
@@ -247,6 +255,520 @@ result6 = Result.create!(
 
 result7 = Result.create!(
   test: test1,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 1
+  )
+
+
+  # Results from the 2nd test
+
+result11 = Result.create!(
+  test: test2,
+  correct: true,
+  number_total_values: 631,
+  number_incorrect_values: 0
+  )
+
+result21 = Result.create!(
+  test: test2,
+  correct: true,
+  number_total_values: 612,
+  number_incorrect_values: 0
+  )
+
+result31 = Result.create!(
+  test: test2,
+  correct: true,
+  number_total_values: 598,
+  number_incorrect_values: 4
+  )
+
+result41 = Result.create!(
+  test: test2,
+  correct: true,
+  number_total_values: 662,
+  number_incorrect_values: 18
+  )
+
+result51 = Result.create!(
+  test: test2,
+  correct: true,
+  number_total_values: 640,
+  number_incorrect_values: 8
+  )
+
+result61 = Result.create!(
+  test: test2,
+  correct: true,
+  number_total_values: 617,
+  number_incorrect_values: 2
+  )
+
+result71 = Result.create!(
+  test: test2,
+  correct: true,
+  number_total_values: 640,
+  number_incorrect_values: 0
+  )
+
+  # Results from the 3rd test
+
+
+result12 = Result.create!(
+  test: test3,
+  correct: false,
+  number_total_values: 631,
+  number_incorrect_values: 12
+  )
+
+result22 = Result.create!(
+  test: test3,
+  correct: false,
+  number_total_values: 612,
+  number_incorrect_values: 0
+  )
+
+result32 = Result.create!(
+  test: test3,
+  correct: false,
+  number_total_values: 598,
+  number_incorrect_values: 4
+  )
+
+result42 = Result.create!(
+  test: test3,
+  correct: false,
+  number_total_values: 662,
+  number_incorrect_values: 18
+  )
+
+result52 = Result.create!(
+  test: test3,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 8
+  )
+
+result62 = Result.create!(
+  test: test3,
+  correct: false,
+  number_total_values: 617,
+  number_incorrect_values: 2
+  )
+
+result72 = Result.create!(
+  test: test3,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 1
+  )
+
+  # Results from the 4th test
+
+
+result13 = Result.create!(
+  test: test4,
+  correct: false,
+  number_total_values: 631,
+  number_incorrect_values: 12
+  )
+
+result23 = Result.create!(
+  test: test4,
+  correct: false,
+  number_total_values: 612,
+  number_incorrect_values: 0
+  )
+
+result33 = Result.create!(
+  test: test4,
+  correct: false,
+  number_total_values: 598,
+  number_incorrect_values: 4
+  )
+
+result43 = Result.create!(
+  test: test4,
+  correct: false,
+  number_total_values: 662,
+  number_incorrect_values: 18
+  )
+
+result53 = Result.create!(
+  test: test4,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 8
+  )
+
+result63 = Result.create!(
+  test: test4,
+  correct: false,
+  number_total_values: 617,
+  number_incorrect_values: 2
+  )
+
+result73 = Result.create!(
+  test: test4,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 1
+  )
+
+
+  # Results from the 5th test
+
+result14 = Result.create!(
+  test: test5,
+  correct: false,
+  number_total_values: 631,
+  number_incorrect_values: 12
+  )
+
+result24 = Result.create!(
+  test: test5,
+  correct: false,
+  number_total_values: 612,
+  number_incorrect_values: 0
+  )
+
+result34 = Result.create!(
+  test: test5,
+  correct: false,
+  number_total_values: 598,
+  number_incorrect_values: 4
+  )
+
+result44 = Result.create!(
+  test: test5,
+  correct: false,
+  number_total_values: 662,
+  number_incorrect_values: 18
+  )
+
+result54 = Result.create!(
+  test: test5,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 8
+  )
+
+result64 = Result.create!(
+  test: test5,
+  correct: false,
+  number_total_values: 617,
+  number_incorrect_values: 2
+  )
+
+result74 = Result.create!(
+  test: test5,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 1
+  )
+
+  # Results from the 6th test
+
+result15 = Result.create!(
+  test: test6,
+  correct: true,
+  number_total_values: 678,
+  number_incorrect_values: 0
+  )
+
+result25 = Result.create!(
+  test: test6,
+  correct: false,
+  number_total_values: 612,
+  number_incorrect_values: 0
+  )
+
+result35 = Result.create!(
+  test: test6,
+  correct: false,
+  number_total_values: 598,
+  number_incorrect_values: 4
+  )
+
+result45 = Result.create!(
+  test: test6,
+  correct: false,
+  number_total_values: 662,
+  number_incorrect_values: 18
+  )
+
+result55 = Result.create!(
+  test: test6,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 8
+  )
+
+result65 = Result.create!(
+  test: test6,
+  correct: false,
+  number_total_values: 617,
+  number_incorrect_values: 2
+  )
+
+result75 = Result.create!(
+  test: test6,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 1
+  )
+
+  # Results from the 7th test
+
+result16 = Result.create!(
+  test: test7,
+  correct: false,
+  number_total_values: 631,
+  number_incorrect_values: 12
+  )
+
+result26 = Result.create!(
+  test: test7,
+  correct: false,
+  number_total_values: 612,
+  number_incorrect_values: 0
+  )
+
+result36 = Result.create!(
+  test: test7,
+  correct: false,
+  number_total_values: 598,
+  number_incorrect_values: 4
+  )
+
+result46 = Result.create!(
+  test: test7,
+  correct: false,
+  number_total_values: 662,
+  number_incorrect_values: 18
+  )
+
+result56 = Result.create!(
+  test: test7,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 8
+  )
+
+result66 = Result.create!(
+  test: test7,
+  correct: false,
+  number_total_values: 617,
+  number_incorrect_values: 2
+  )
+
+result76 = Result.create!(
+  test: test7,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 1
+  )
+
+  # Results from the 8th test
+
+result17 = Result.create!(
+  test: test8,
+  correct: false,
+  number_total_values: 631,
+  number_incorrect_values: 12
+  )
+
+result27 = Result.create!(
+  test: test8,
+  correct: false,
+  number_total_values: 612,
+  number_incorrect_values: 0
+  )
+
+result37 = Result.create!(
+  test: test8,
+  correct: false,
+  number_total_values: 598,
+  number_incorrect_values: 4
+  )
+
+result47 = Result.create!(
+  test: test8,
+  correct: false,
+  number_total_values: 662,
+  number_incorrect_values: 18
+  )
+
+result57 = Result.create!(
+  test: test8,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 8
+  )
+
+result67 = Result.create!(
+  test: test8,
+  correct: false,
+  number_total_values: 617,
+  number_incorrect_values: 2
+  )
+
+result77 = Result.create!(
+  test: test8,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 1
+  )
+
+  # Results from the 9th test
+
+result18 = Result.create!(
+  test: test9,
+  correct: false,
+  number_total_values: 631,
+  number_incorrect_values: 12
+  )
+
+result28 = Result.create!(
+  test: test9,
+  correct: false,
+  number_total_values: 612,
+  number_incorrect_values: 0
+  )
+
+result38 = Result.create!(
+  test: test9,
+  correct: false,
+  number_total_values: 598,
+  number_incorrect_values: 4
+  )
+
+result48 = Result.create!(
+  test: test9,
+  correct: false,
+  number_total_values: 662,
+  number_incorrect_values: 18
+  )
+
+result58 = Result.create!(
+  test: test9,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 8
+  )
+
+result68 = Result.create!(
+  test: test9,
+  correct: false,
+  number_total_values: 617,
+  number_incorrect_values: 2
+  )
+
+result78 = Result.create!(
+  test: test9,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 1
+  )
+
+  # Results from the 10th test
+
+result19 = Result.create!(
+  test: test10,
+  correct: false,
+  number_total_values: 631,
+  number_incorrect_values: 12
+  )
+
+result29 = Result.create!(
+  test: test10,
+  correct: false,
+  number_total_values: 612,
+  number_incorrect_values: 0
+  )
+
+result39 = Result.create!(
+  test: test10,
+  correct: false,
+  number_total_values: 598,
+  number_incorrect_values: 4
+  )
+
+result49 = Result.create!(
+  test: test10,
+  correct: false,
+  number_total_values: 662,
+  number_incorrect_values: 18
+  )
+
+result59 = Result.create!(
+  test: test10,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 8
+  )
+
+result69 = Result.create!(
+  test: test10,
+  correct: false,
+  number_total_values: 617,
+  number_incorrect_values: 2
+  )
+
+result79 = Result.create!(
+  test: test10,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 1
+  )
+
+  # Results from the 11th test
+
+result111 = Result.create!(
+  test: test11,
+  correct: true,
+  number_total_values: 631,
+  number_incorrect_values: 0
+  )
+
+result211 = Result.create!(
+  test: test11,
+  correct: false,
+  number_total_values: 612,
+  number_incorrect_values: 0
+  )
+
+result311 = Result.create!(
+  test: test11,
+  correct: false,
+  number_total_values: 598,
+  number_incorrect_values: 4
+  )
+
+result411 = Result.create!(
+  test: test11,
+  correct: false,
+  number_total_values: 662,
+  number_incorrect_values: 18
+  )
+
+result511 = Result.create!(
+  test: test11,
+  correct: false,
+  number_total_values: 640,
+  number_incorrect_values: 8
+  )
+
+result611 = Result.create!(
+  test: test11,
+  correct: false,
+  number_total_values: 617,
+  number_incorrect_values: 2
+  )
+
+result711 = Result.create!(
+  test: test11,
   correct: false,
   number_total_values: 640,
   number_incorrect_values: 1

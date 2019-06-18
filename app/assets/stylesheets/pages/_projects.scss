@@ -1,0 +1,32 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.card-project {
+  padding: 20px 20px;
+  justify-content: center;
+}
+
+.card-project button {
+  align-items: center;
+}
+
+.card-project:hover {
+  background: $heavy_blue;
+  color: $white;
+}
+
+.card-project:hover .btn-primary {
+    background-color: $light_grey;
+    border-color: #0085aa;
+    transition: all 0.3s;
+}
+
+.fa-times-circle {
+  font-size: 60px;
+  padding: 10px 10px;
+  text-align: center;
+  color: #FF443A;
+}
