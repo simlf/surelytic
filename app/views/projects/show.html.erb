@@ -1,11 +1,23 @@
 <%= link_to "Back to #{current_user.organization.name}", organization_path %>
 
 <div class="container">
-  <h1><%= @project.name %></h1>
   <h3><%= link_to "Create new test", new_project_test_path(@project)  %></h3>
+  <div class="background">
+  <h1><%= @project.name %></h1>
 
-  <h2>Your tests</h2>
-  <% @project.tests.each do |test| %>
-  <p><%= test.name %> | <%= link_to "see details", project_test_path(@project, test) %> | <%= link_to "edit", edit_project_test_path(@project, test) %></p>
-  <% end %>
+
+  <!-- <h2>Your tests</h2> -->
+    <div class="cards">
+      <% @project.tests.each do |test| %>
+        <% unless test.results.last.correct %>
+          <div class="card card-project">
+            <h6><%= test.name %></h6>
+            <p><i class="far fa-calendar-alt"></i> <%= test.updated_at %></p>
+            <i class="far fa-times-circle"></i>
+            <button class='btn btn-primary'><%= link_to "See report", project_test_path(@project, test) %></button>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
