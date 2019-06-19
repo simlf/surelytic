@@ -83,12 +83,7 @@ if (document.getElementById('chart-simple-bar')){
         label: '',
         data : JSON.parse(chartIncorrectValues),
         backgroundColor: [
-          '#2B81C5',
-          '#62D459',
-          '#F2C245',
-          '#EB893A',
-          '#CB4EE0',
-          '#F8F8F8'
+          'red','red','red','red','red','red'
         ],
         borderWidth: 1
         }]

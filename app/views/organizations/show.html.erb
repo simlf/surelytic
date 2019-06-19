@@ -1,104 +1,65 @@
+<div>
+  Projects Overview for <%= @organization.name %>
+  <%= link_to "Create new project", new_project_path%>
+</div>
 
-<div class="ligne3">
-  <div class="container-h">
-      <div class="orga-section-headline d-flex">
-        <h2><i class="fas fa-cogs" id="menu-icon"></i> Projects Overview</h2>
-        <%= link_to "Get started", new_project_path, class: "btn btn-primary"  %>
-      </div>
-        <div class="scrolling-wrapper">
-          <% @projects.each do |project| %>
-          <%= link_to project_path(project) do %>
-          <div class= "c">
-              <h4 style="margin-left: 20px">  <i class="far fa-eye"></i>  <%= project.name.upcase %>
-            <div class="card-header">
-              <div class="d-flex align-items-center justify-content-between">
-              <h4> <%= project.tests.count %> test(s)</h4>
-              <% tests_with_results = project.tests.select {|test| !test.results.empty? } %>
-              <div class="d-flex align-items-center">
-              <h4><i class="far fa-times-circle" style="color:#FF2B49; font-size:45px;"></i></h4>
-              <h4><%=  error = tests_with_results.map {|test| test.results.last.number_incorrect_values }.sum %></h4>
-              </div>
-              </div>
-            </div>
-            <div class="card-details-title">
-              <% if project.tests.exists? %>
-                <% project.tests.each do |test| %>
-                  <h6><%= test.name.capitalize %> | <%= link_to '<i class="fas fa-search-plus"></i>'.html_safe, project_test_path(project, test) %> </h6>
-                  <div class="card-details-content">
-                    <p>
-                      <i class="fas fa-hourglass-half"></i>
-                      <%= test.frequency.capitalize %>
-                    </p>
-                    <p>
-                      <i class="far fa-calendar-alt"></i> <%= test.created_at %>
-                    </p>
-                  </div>
-                <% end %>
-              <% else %>
-                <p>There isn't any test yet in <%= project.name %></p>
-                <button type="button" class="btn btn-primary">
-                  <%= link_to 'New test', new_project_test_path(project.id) %>
-                </button>
-              <% end %>
-            </div>
-            <% end %>
-          </div>
-          <% end %>
-        </div>
+
+<hr>
+
+
+<% @projects.each do |project| %>
+  <div>
+    Project name : <%= project.name %>
+    <%= link_to 'project details', project_path(project) %>
+    <%= project.tests.count %> test(s)
   </div>
-</div>
-</div>
-<div class="ligne2">
-<div class="container-h">
-  <div class= "card d-flex">
-    <h2><i class="fas fa-cogs" id="menu-icon"></i> Projects Stats</h2>
-      <canvas
-      class="graph"
-      id="chart-simple-bar"
-      data-chart-labels="<%= @chart_data_labels.to_json %>"
-      data-chart-errors="<%= @chart_data_incorrect.to_json %>"
-      >
-      </canvas>
-</div>
-</div>
 
-<div class="container-h">
+  <% tests_with_results = project.tests.select {|test| !test.results.empty? } %>
 
+  <div>Errors in last run for the project : <%=  error = tests_with_results.map {|test| test.results.last.number_incorrect_values }.sum %></div>
 
-    <div class= "card">
-      <div class="orga-section-headline d-flex">
-        <h3><i class="fas fa-money-check-alt" id="menu-icon"></i> Credits <%= @organization.monthly_credits %>/month</h3>
-        <%= link_to "Extra credits", "#", class: "btn btn-primary"  %>
+  <% if project.tests.exists? %>
+    <% project.tests.each do |test| %>
+      <div>
+        <%= test.name.capitalize %> |
+        <%= test.frequency.capitalize %> |
+        <%= link_to 'details'.html_safe, project_test_path(project, test) %>
       </div>
-
-      <div id="credits_display" class="d-flex">
-          <div>
-            <div class="card-header">Current credits</div>
-
-            <div class="card align-items-center"><h2><%= @organization.current_credits %></h2></div>
-
-          </div>
-      </div>
-    </div>
+    <% end %>
+  <% else %>
+    <div>There isn't any test yet in <%= project.name %></div>
+    <%= link_to 'New test', new_project_test_path(project.id) %>
+  <% end %>
+  <br>
+<% end %>
 
 
-    <div class="card">
-
-      <div class="orga-section-headline d-flex">
-        <h3><i class="fas fa-user-tie" id="menu-icon"></i> <%= @organization.users.count %> user(s)</h3>
-        <%= link_to 'New user', new_organization_user_path, class: "btn btn-primary" %>
-      </div>
+<hr>
 
 
-      <div class="d-flex users_display">
-        <% @organization.users.each do |user| %>
-        <div class="home-user">
-          <i class="far fa-user-circle"></i>
-          <div class="user-card"><%= user.email %></div>
-          <div>Edit user info</div>
-        </div>
-        <% end%>
-      </div>
-    </div>
+<%= link_to "Extra credits"%>
+<div><%= @organization.current_credits %> Credits available</div>
+
+<hr>
+
+<%= link_to 'New user', new_organization_user_path%>
+<div>
+  <%= @organization.users.count %> user(s)
+</div>
+
+<% @organization.users.each do |user| %>
+  <div class="user-card"><%= user.email %></div>
+<% end%>
 
 
+<hr>
+
+
+<div>Projects Stats</div>
+<canvas
+class="graph"
+id="chart-simple-bar"
+data-chart-labels="<%= @chart_data_labels.to_json %>"
+data-chart-errors="<%= @chart_data_incorrect.to_json %>"
+>
+</canvas>
