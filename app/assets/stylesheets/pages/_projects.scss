@@ -16,6 +16,13 @@
   color: $black;
 }
 
+p {
+  font-weight: lighter;
+  margin: -8px -16px;
+  padding: 19px;
+  font-size: 14px;
+}
+
 .card-project:hover .btn-primary {
     background-color: $light_grey;
     border-color: #0085aa;
@@ -30,22 +37,22 @@
 
 
 .fa-times-circle {
-  font-size: 60px;
-  padding: 10px 10px;
+  font-size: 74px;
+  margin: 29px 10px;
   text-align: center;
   color: #FF443A;
 }
 
 .fa-check-circle {
-  font-size: 60px;
-  padding: 10px 10px;
+  font-size: 74px;
+  margin: 29px 10px;
   text-align: center;
   color: $heavy_blue;
 }
 
 .fa-history {
-  font-size: 60px;
-  padding: 10px 10px;
+  font-size: 67px;
+  margin: 29px 10px;
   text-align: center;
   color: $light_blue;
 }
