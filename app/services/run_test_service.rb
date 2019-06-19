@@ -46,20 +46,6 @@ class RunTestService
 
     end
 
-    # elsif @test.ga_report_type == 'custom dimension'
-    #   api_metric = @test.cd_scope
-    #   api_dimension = "ga:dimension#{@test.cd_index}"
-    #   api_condition_regex = "ga:dimension#{@test.cd_index}=~#{@test.cd_regex}"
-
-    # elsif @test.ga_report_type == 'enhanced e-commerce'
-    #   api_metric = 'ga:transactions'
-    #   api_dimension = 'ga:productName'
-    #   api_condition_regex = "ga:productName=~#{@test.eec_product_name_regex}"
-
-    # elsif @test.ga_report_type == 'goals'
-    #   api_metric = "ga:goal#{@test.goal_index}completions"
-    # end
-
     service = Google::Apis::AnalyticsreportingV4::AnalyticsReportingService.new
     credentials = Google::Auth::ServiceAccountCredentials.make_creds(
       json_key_io: File.open(Rails.root.join('service_account_cred.json')),

@@ -1,23 +1,104 @@
-<%= link_to "Back to #{current_user.organization.name}", organization_path %>
-
 <div class="container">
-  <h3><%= link_to "Create new test", new_project_test_path(@project)  %></h3>
+
+  <%= link_to "Back to #{current_user.organization.name}", organization_path, class:"btn btn-warning" %>
   <div class="background">
-  <h1><%= @project.name %></h1>
+    <h3><%= @project.name %> <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, new_project_test_path(@project)  %></h1>
 
-
-  <!-- <h2>Your tests</h2> -->
     <div class="cards">
-      <% @project.tests.each do |test| %>
-        <% unless test.results.last.correct %>
+
+    <% if @incorrect_tests.present? %>
+      <% @incorrect_tests.each do |test| %>
+        <%= link_to project_test_path(@project, test) do %>
           <div class="card card-project">
-            <h6><%= test.name %></h6>
-            <p><i class="far fa-calendar-alt"></i> <%= test.updated_at %></p>
+            <% if test.name.length >= 19  %>
+                <h6><%= test.name.slice(0, 19) %> [...]</h6>
+              <% else %>
+                <h6><%= test.name %></h6>
+            <% end %>
+            <p><i class="far fa-calendar-alt"></i> <%= test.updated_at.strftime"%d %B %Y at %H:%M" %></p>
             <i class="far fa-times-circle"></i>
-            <button class='btn btn-primary'><%= link_to "See report", project_test_path(@project, test) %></button>
+            <button class="btn btn-primary">See report</button>
           </div>
         <% end %>
       <% end %>
+    <% end %>
+
+    <% if @correct_tests.present? %>
+      <% @correct_tests.each do |test| %>
+        <%= link_to project_test_path(@project, test) do %>
+          <div class="card card-project">
+            <% if test.name.length >= 19  %>
+                <h6><%= test.name.slice(0, 19) %> [...]</h6>
+              <% else %>
+                <h6><%= test.name %></h6>
+            <% end %>
+            <p><i class="far fa-calendar-alt"></i> <%= test.updated_at %></p>
+            <i class="far fa-check-circle"></i>
+            <button class="btn btn-primary">See report</button>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <% if @no_results_tests.present? %>
+      <% @no_results_tests.each do |test| %>
+        <div class="card card-project">
+          <% if test.name.length >= 25  %>
+              <h6><%= test.name.slice(0, 25) %> [...]</h6>
+            <% else %>
+              <h6><%= test.name %></h6>
+          <% end %>
+          <i class="fas fa-history"></i>
+          <p>Come back later, there isn't any result yet!</p>
+        </div>
+      <% end %>
+    <% end %>
+
     </div>
   </div>
 </div>
+
+      <% if false %>
+          <% if test.results.last == nil %>
+            <div class="card card-project">
+              <% if test.name.length >= 19  %>
+                  <h6><%= test.name.slice(0, 19) %> [...]</h6>
+                <% else %>
+                  <h6><%= test.name %></h6>
+              <% end %>
+
+              <p>Come back later, there isn't any result yet!</p>
+            </div>
+
+          <% elsif test.results.last.correct %>
+            <%= link_to project_test_path(@project, test) do %>
+              <div class="card card-project">
+                <% if test.name.length >= 19  %>
+                  <h6><%= test.name.slice(0, 19) %> [...]</h6>
+                <% else %>
+                  <h6><%= test.name %></h6>
+                <% end %>
+
+                <p><i class="far fa-calendar-alt"></i> <%= test.updated_at %></p>
+                <i class="far fa-times-circle"></i>
+                <button class="btn btn-primary">See report</button>
+              </div>
+            <% end %>
+
+          <% elsif test.results.last.correct == false %>
+            <%= link_to project_test_path(@project, test) do %>
+            <div class="card card-project">
+              <% if test.name.length >= 19  %>
+                  <h6><%= test.name.slice(0, 19) %> [...]</h6>
+                <% else %>
+                  <h6><%= test.name %></h6>
+              <% end %>
+              <p><i class="far fa-calendar-alt"></i> <%= test.updated_at %></p>
+              <i class="far fa-check-circle"></i>
+              <button class="btn btn-primary">See report</button>
+            </div>
+            <% end %>
+          <% end %>
+      <% end %>
+
+
