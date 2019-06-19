@@ -10,7 +10,6 @@
 }
 
 .orga-section{
-  border-bottom: 1px solid grey;
   padding: 30px 0px;
 }
 
@@ -92,3 +91,95 @@ a:hover {
 .card-header .far {
   color: $light_grey;
 }
+
+.card_orga {
+  width: 490px;
+  padding: 20px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #FFFBFB;
+  background-clip: border-box;
+  border: 1px solid rgba(44, 56, 72, 0.125);
+  border-radius: 5px;
+}
+
+.project-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.boxed {
+  width: 450px;
+}
+
+.graph {
+ width: 900px;
+ height: 800px;
+ margin: auto;
+}
+
+.box-user {
+  padding-left: 10px;
+  border-left: 4px solid rgba(44, 59, 87, 1);
+}
+
+.box {
+  display: flex;
+  justify-content: space-around;
+}
+
+.circle {
+  margin: 10px;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  background-color: #FF2C47;
+}
+
+.containt {
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card_project {
+  width: 250px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #FFFBFB;
+  background-clip: border-box;
+  border: 1px solid rgba(44, 56, 72, 0.125);
+  border-radius: 5px;
+}
+
+.ligne4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+}
+
+.card-header2 {
+  width: 350px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  background-color: $heavy_blue;
+  color: white;
+  padding: 35px 20px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(44, 56, 72, 0.125);
+}
+
