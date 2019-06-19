@@ -11,7 +11,7 @@
 
 .carding-home {
 margin: 20px 0px;
-padding: 35px 30px;
+padding: 35px 19px;
 position: relative;
 display: flex;
 background: white;
@@ -23,6 +23,12 @@ border: 1px solid rgba(44, 56, 72, 0.125);
 border-radius: 5px;
 }
 
+
+
+.img-run-detail{
+margin-top: 17PX;
+}
+
 .ligne {
 padding: 15px 0;
 margin-top: 100px;
@@ -31,10 +37,31 @@ flex-wrap: wrap;
 justify-content: space-between;
 }
 
+.cards-home{
+   display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+  margin-top: 17px;
+
+//   padding: 15px 0;
+// margin-top: 100px;
+// display: flex;
+// flex-wrap: wrap;
+// justify-content: space-around;
+}
 .ligne2 {
 padding: 15px 0;
 margin: 100px 0;
 display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: space-between;
+}
+
+.ligne4 {
+padding: 15px 0;
+margin: 100px 0;
+
 flex-wrap: wrap;
 align-items: center;
 justify-content: space-between;
@@ -74,6 +101,7 @@ flex-direction: column;
 min-width: 0;
 word-wrap: break-word;
 background-clip: border-box;
+margin-top: 40PX;
 
   .ligne {
     margin-top: 0px;

@@ -11,9 +11,7 @@
   <% if user_signed_in? %>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <%= link_to '<i class="fas fa-home"></i>'.html_safe, organization_path, class: "nav-link" %>
-        </li>
+
         <li class="nav-item dropdown">
 
           <%= image_tag 'user-circle-regular.svg', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

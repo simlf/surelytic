@@ -1,29 +1,6 @@
 <div class="container-h">
-  <div class="ligne">
-    <div class="carding-home">
-      <div class="img-run-detail"><%= image_tag "analytics1.jpg" %>
-        <div class="sub-img">
-          <p>Custom analytics is the only path to insights...</p>
-        </div>
-      </div>
-    </div>
-    <div class="carding-home">
-      <div class="img-run-detail"><%= image_tag "analystics.jpg" %>
-        <div class="sub-img">
-          <p>...but is also a source of errors...</p>
-        </div>
-      </div>
-    </div>
-    <div class="carding-home">
-      <div class="img-run-detail"><%= image_tag "analytics2.jpg" %>
-        <div class="sub-img">
-          <p>...hence requiring monitoring for data integrity</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="ligne2">
+ <div class="ligne2">
     <div class="sub-block">
       <h2>Are you still checking your GA data manually?</h2>
       <p>Surelytics is the best tool to manage your analytics tests and run data quality tests.</p>
@@ -31,6 +8,44 @@
     </div>
     <div class="image-block">
       <%= image_tag "surelytics_homeboy.png",  :class => "style_image"%>
+    </div>
+  </div>
+</div>
+
+<div class="container-h">
+    <div class="cards-home">
+      <!-- <div class="ligne"> -->
+        <div class="carding-home">
+          <div class="img-run-detail"><%= image_tag "analytics2.jpg" %>
+            <div class="sub-img">
+              <p>Always have quality data with clear visual cues.</p>
+            </div>
+          </div>
+        </div>
+        <div class="carding-home">
+          <div class="img-run-detail"><%= image_tag "analytics3.jpg" %>
+            <div class="sub-img">
+              <p>Monitor customized GA data in a simple way</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="carding-home">
+          <div class="img-run-detail"><%= image_tag "analytics-data.jpg" %>
+            <div class="sub-img">
+              <p>More time analysing data instead of fixing bugs</p>
+            </div>
+          </div>
+        </div>
+        <div class="carding-home">
+          <div class="img-run-detail"><%= image_tag "analytics-search.jpg" %>
+            <div class="sub-img">
+              <p>You are notified by email in real time when a test is incorrect.
+</p>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
 </div>
@@ -67,10 +82,12 @@
 </div>
 
 <div class="container-h">
-  <div class="ligne2">
+  <div class="ligne4">
       <div class="before-end">
         <h1><strong>Surelytics</strong></h1>
         <h4>Much more detailed approach to help and pinpoint data quality problems.<br>Faster & proactive problem resolution.</h4>
+        <br>
+         <%= link_to "GET STARTED", new_user_registration_path, class: "btn btn-primary"  %>
       </div>
   </div>
 </div>
