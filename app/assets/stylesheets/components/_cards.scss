@@ -17,6 +17,10 @@
 .card-details-title {
   background-color: $light_grey;
   color: black;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 475px;
+  width: 475px;
   margin-bottom: 20px;
   padding: 20px 20px;
   border-bottom-left-radius: 3px;

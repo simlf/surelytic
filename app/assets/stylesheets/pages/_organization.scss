@@ -97,7 +97,7 @@ a:hover {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #FFFBFB;
+  background-color: #F2F9F8;
   background-clip: border-box;
   border: 1px solid rgba(44, 56, 72, 0.125);
   border-radius: 5px;
@@ -114,6 +114,7 @@ a:hover {
 }
 
 .graph {
+
  width: 600px;
  // height: 800px;
  margin: auto;
@@ -148,13 +149,12 @@ a:hover {
 }
 
 .card_project {
-  width: 250px;
+  width: 225px;
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #FFFBFB;
   background-clip: border-box;
   border: 1px solid rgba(44, 56, 72, 0.125);
   border-radius: 5px;
@@ -168,7 +168,7 @@ a:hover {
 }
 
 .card-header2 {
-  width: 350px;
+  width: 335px;
   height: 150px;
   display: flex;
   flex-direction: column;
@@ -180,3 +180,34 @@ a:hover {
   border: 1px solid rgba(44, 56, 72, 0.125);
 }
 
+.card_project {
+  width: auto;
+  padding: 20px 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: white;
+  background-clip: border-box;
+  border: 1px solid rgba(44, 56, 72, 0.125);
+  border-radius: 5px;
+  h5 {
+    font-size: 1.3rem;
+  }
+}
+
+.scrolling-wrapper {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+
+  .c {
+    display: inline-block;
+    height: 200px;
+    a {
+      text-decoration: none;
+    }
+  }
+}
