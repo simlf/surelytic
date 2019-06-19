@@ -116,9 +116,9 @@ a:hover {
   width: 450px;
 }
 
-.fake_image {
+.graph {
  width: 900px;
- height: 500px;
+ height: 800px;
  margin: auto;
 }
 
@@ -131,3 +131,55 @@ a:hover {
   display: flex;
   justify-content: space-around;
 }
+
+.circle {
+  margin: 10px;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  background-color: #FF2C47;
+}
+
+.containt {
+  position: relative;
+  float: left;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.card_project {
+  width: 250px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #FFFBFB;
+  background-clip: border-box;
+  border: 1px solid rgba(44, 56, 72, 0.125);
+  border-radius: 5px;
+}
+
+.ligne4 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+}
+
+.card-header2 {
+  width: 350px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  background-color: $heavy_blue;
+  color: white;
+  padding: 35px 20px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(44, 56, 72, 0.125);
+}
+
