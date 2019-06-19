@@ -1,8 +1,10 @@
 
 
+
 <div class="link">
 <%= link_to "#{current_user.organization.name}", organization_path, class:"btn btn-warning" %>
 </div>
+
 
 <% if @last_result == nil %>
   <p> Sorry,<strong> No result yet</strong> 😢 <br>Come back later</p>
@@ -39,8 +41,10 @@
               <h3>Last Run</h3>
           </div>
 
+
   <div class="container test-results d-flex justify-content-center">
     <div class=" cards">
+
 
          <!--  <div class="card card-test title ">
 
