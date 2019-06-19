@@ -1,3 +1,7 @@
+<div class="ml-5">
+  <%= link_to "#{current_user.organization.name}", organization_path, class:"btn btn-warning" %>
+</div>
+
 <div class="container form-devise">
 
   <h1>Set your test!</h1>
@@ -64,6 +68,5 @@
       <%= f.button :submit, 'Create test', class: 'btn btn-primary' %>
     </div>
   <% end %>
-    <%= link_to "Back to #{current_user.organization.name}", organization_path, class:"btn btn-warning" %>
   </div>
 </div>
