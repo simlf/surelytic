@@ -113,12 +113,7 @@ a:hover {
   width: 450px;
 }
 
-.graph {
 
- width: 600px;
- // height: 800px;
- margin: auto;
-}
 
 .box-user {
   padding-left: 10px;
@@ -207,6 +202,8 @@ a:hover {
     display: inline-block;
     height: 200px;
     a {
+      margin-left: 20px;
+      color: #2C3954;
       text-decoration: none;
     }
   }
