@@ -127,6 +127,11 @@ background-clip: border-box;
 
 @media (max-width: 768px) {
   /* line 6, node_modules/bootstrap/scss/_grid.scss */
+  .graph {
+  width: 200px;
+  margin: auto;
+  }
+
   .container-h {
     max-width: 710px;
   }
@@ -146,8 +151,13 @@ background-clip: border-box;
 
 @media (max-width: 992px) {
   /* line 6, node_modules/bootstrap/scss/_grid.scss */
+    .graph {
+  width: 350px;
+  margin: auto;
+  }
+
   .container-h {
-    max-width: 870px;
+    max-width: 780px;
   }
   .image-block {
   margin: auto;
@@ -159,6 +169,10 @@ background-clip: border-box;
 
 @media (min-width: 1200px) {
   /* line 6, node_modules/bootstrap/scss/_grid.scss */
+  .graph {
+  width: 900px;
+  margin: auto;
+  }
   .container-h {
     max-width: 1000px;
   }
