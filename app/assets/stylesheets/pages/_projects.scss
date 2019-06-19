@@ -9,11 +9,19 @@
   padding: 20px 20px;
   justify-content: center;
   color: $black;
+  margin-bottom: 20px;
 }
 
 .card-project a {
   align-items: center;
   color: $black;
+}
+
+.card-project p {
+  font-weight: lighter;
+  margin-top: 8px;
+  font-size: 14px;
+  text-align: center
 }
 
 .card-project:hover .btn-primary {
@@ -28,24 +36,23 @@
   color: $white;
 }
 
-
 .fa-times-circle {
-  font-size: 60px;
-  padding: 10px 10px;
+  font-size: 74px;
+  margin: 26px;
   text-align: center;
   color: #FF443A;
 }
 
 .fa-check-circle {
-  font-size: 60px;
-  padding: 10px 10px;
+  font-size: 74px;
+  margin: 29px 10px;
   text-align: center;
   color: $heavy_blue;
 }
 
 .fa-history {
-  font-size: 60px;
-  padding: 10px 10px;
+  font-size: 67px;
+  margin: 29px 10px;
   text-align: center;
   color: $light_blue;
 }
