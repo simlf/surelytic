@@ -19,51 +19,99 @@ if (document.getElementById('test_ga_report_type')) {
   });
 }
 
-// Chart JS setup
-const chartLabels = document.getElementById('chart').dataset.chartLabels;
-const chartIncorrectValues = document.getElementById('chart').dataset.chartIncorrect;
-const chartCorrectValues = document.getElementById('chart').dataset.chartCorrect;
-const barChartData = {
-      labels: JSON.parse(chartLabels),
-      datasets: [{
-        label: 'Incorrect results',
-        backgroundColor: 'red',
-        data: JSON.parse(chartIncorrectValues)
-      }
-      , {
-        label: 'Correct results',
-        backgroundColor: '#40539A',
-        data: JSON.parse(chartCorrectValues)
-      }]
-    };
+// Chart JS setup - Stacked bars
 
-
-window.onload = function() {
-  var ctx = document.getElementById('chart').getContext('2d');
-  window.myBar = new Chart(ctx, {
-    type: 'bar',
-    data: barChartData,
-    options: {
-      title: {
-        display: true,
-        // text: 'Previous 5 runs results'
-      },
-      tooltips: {
-        mode: 'index',
-        intersect: false
-      },
-      responsive: true,
-      scales: {
-        xAxes: [{
-          stacked: true,
-        }],
-        yAxes: [{
-          stacked: true
+if (document.getElementById('chart-double-bar')){
+  const chartLabels = document.getElementById('chart-double-bar').dataset.chartLabels;
+  const chartIncorrectValues = document.getElementById('chart-double-bar').dataset.chartIncorrect;
+  const chartCorrectValues = document.getElementById('chart-double-bar').dataset.chartCorrect;
+  const barChartData = {
+        labels: JSON.parse(chartLabels),
+        datasets: [{
+          label: 'Incorrect results',
+          backgroundColor: 'red',
+          data: JSON.parse(chartIncorrectValues)
+        }
+        , {
+          label: 'Correct results',
+          backgroundColor: '#40539A',
+          data: JSON.parse(chartCorrectValues)
         }]
+      };
+
+  window.onload = function() {
+    var ctx = document.getElementById('chart-double-bar').getContext('2d');
+    window.myBar = new Chart(ctx, {
+      type: 'bar',
+      data: barChartData,
+      options: {
+        title: {
+          display: true,
+          // text: 'Previous 5 runs results'
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false
+        },
+        responsive: true,
+        scales: {
+          xAxes: [{
+            stacked: true,
+          }],
+          yAxes: [{
+            stacked: true
+          }]
+        }
       }
-    }
-  });
-};
+    });
+  };
+}
+
+// Chart JS setup - Simple bars
+
+if (document.getElementById('chart-simple-bar')){
+  const chartLabels = document.getElementById('chart-simple-bar').dataset.chartLabels;
+  const chartIncorrectValues = document.getElementById('chart-simple-bar').dataset.chartErrors;
+
+  window.onload = function() {
+    const ctx = document.getElementById('chart-simple-bar').getContext('2d');
+    window.myBar = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels : JSON.parse(chartLabels),
+        datasets: [{
+        label: '',
+        data : JSON.parse(chartIncorrectValues),
+        backgroundColor: [
+          '#2B81C5',
+          '#62D459',
+          '#F2C245',
+          '#EB893A',
+          '#CB4EE0',
+          '#F8F8F8'
+        ],
+        borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: false,
+        scales: {
+          xAxes: [{
+            ticks: {
+              maxRotation: 90,
+              minRotation: 80
+            }
+          }],
+          yAxes: [{
+            ticks: {
+              beginAtZero: true
+            }
+          }]
+        }
+      }
+    });
+  };
+}
 
 
 
