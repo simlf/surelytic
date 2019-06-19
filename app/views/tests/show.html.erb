@@ -1,4 +1,10 @@
-<%= link_to "Back to #{current_user.organization.name}", organization_path, class:"btn btn-warning" %>
+
+
+
+<div class="link">
+<%= link_to "#{current_user.organization.name}", organization_path, class:"btn btn-warning" %>
+</div>
+
 
 <% if @last_result == nil %>
   <p> Sorry,<strong> No result yet</strong> 😢 <br>Come back later</p>
@@ -11,7 +17,7 @@
       <div class="img-one"><%= image_tag "analystics.jpg" %>
         <h2><%=@test.name %>
           <div class="edit">
-          <button type="button" class="btn btn-warning">
+          <button type="button" class="btn btn-primary">
           <%= link_to '✎ Edit', edit_project_test_path %>
           </button>
           </div>
@@ -35,15 +41,17 @@
               <h3>Last Run</h3>
           </div>
 
-  <div class="container test-results d-flex">
-    <div class=" cards-results">
 
-          <div class="card card-test title ">
+  <div class="container test-results d-flex justify-content-center">
+    <div class=" cards">
+
+
+         <!--  <div class="card card-test title ">
 
           <div class="position-h5">
           <h5> All run details </h5>
           </div>
-        </div>
+        </div> -->
 
         <div class="card card-project card-test ">
           <h4><%= @last_result.number_total_values %></h4>
@@ -64,10 +72,11 @@
     </div>
   </div>
 
-<div class="container ">
+<div class="container">
   <div class=" card background-test">
       <div class="position-h4">
-      <h3>Previous 5 runs results</h3>
+      <h3>Previous last
+      5 runs </h3>
       </div>
       <canvas
       id="chart"
