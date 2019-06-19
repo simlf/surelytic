@@ -61,7 +61,9 @@
               <% project.tests.each do |test| %>
                   <% tests << test.name.capitalize %>
                   <% a = test.results.last %>
-                  <% error += a.number_incorrect_values %>
+                  <% unless a.nil? %>
+                    <% error += a.number_incorrect_values %>
+                  <% end %>
               <% end %>
           <% end %>
           <strong><div class='circle'><p><div class="containt"><%= error %></div></p></div> </strong>
