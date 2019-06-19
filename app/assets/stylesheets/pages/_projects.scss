@@ -9,6 +9,7 @@
   padding: 20px 20px;
   justify-content: center;
   color: $black;
+  margin-bottom: 20px;
 }
 
 .card-project a {
@@ -18,9 +19,9 @@
 
 p {
   font-weight: lighter;
-  margin: -8px -16px;
-  padding: 19px;
+  margin-top: 8px;
   font-size: 14px;
+  text-align: center
 }
 
 .card-project:hover .btn-primary {
@@ -38,7 +39,7 @@ p {
 
 .fa-times-circle {
   font-size: 74px;
-  margin: 29px 10px;
+  margin: 26px;
   text-align: center;
   color: #FF443A;
 }
