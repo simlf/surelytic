@@ -1,6 +1,4 @@
-<div class="link">
-<%= link_to "#{current_user.organization.name}", organization_path, class:"btn btn-warning" %>
-</div>
+
 
 
 <% if @last_result == nil %>
@@ -15,16 +13,15 @@
 
 
           <div class="container head">
-             <h1><%=@test.name %><div class="edit">
+            <div class="edit"> <h1><%=@test.name %></h1>
                       <button type="button" class="btn btn-warning">
-
                       <%= link_to '✎ Edit', edit_project_test_path %>
-                      </button></h1>
-                  <h2> <%= link_to 'Project', organization_path  %>  </h2>
+                      </button>
 
-                    </div>
+                </div>
+                <h4 class="test-link"> <%= link_to 'Project', organization_path%>  </h4>
+
           </div>
-
 
 
 
@@ -46,7 +43,7 @@
           <div class="results d-flex">
            <div class="circle"><i class="far fa-calendar-alt"> </i></div>
           <div class="result-info">
-              <h3>Date run</h3>
+              <h3>Last run</h3>
               <P><%= @last_result.created_at.strftime"%d %B %Y at %H:%M" %></P>
           </div>
           </div>
@@ -88,7 +85,7 @@
 <br>
 
 <div class="container chart">
-      <!-- <h2>Previous last 5 runs </h2> -->
+      <h2>Previous last 5 runs </h2>
 
 
       <canvas
@@ -119,7 +116,7 @@
       <div class="card result-body p-0">
         <div class="card-result-header"> <p>Hits delta / previous run</p></div>
       <div class="card-result-detail">
-        <div><h6><strong><%=percentage_between_results(@last_result, @before_last_result) %> %</strong> </h6></div>
+        <div><h6><strong><%=percentage_between_results(@last_result, @before_last_result) %> %</strong></h6></div>
         <div><h6><strong> <%= diff_between_results(@last_result, @before_last_result)%></strong></H6></div>
       </div>
     </div>
