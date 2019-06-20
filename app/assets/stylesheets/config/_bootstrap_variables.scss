@@ -5,20 +5,18 @@
 
 // General style
 $font-family-sans-serif:  $body-font;
-// $headings-font-family:    $headers-font;
-$body-bg:                 white;
-$font-size-base: 1rem;
+$headings-font-family:    $headers-font;
+$body-bg:                 $light_grey;
+$font-size-base: 0.75rem;
 
 // Colors
 $body-color: $black;
 $primary:    $light_blue;
-$success:    $light_blue;
-
+$success:    $heavy_blue;
 $info:       $heavy_blue;
 // to be used for hover
 
-$danger:     $light_red;
-$warning:    $blue;
+$danger:     $red;
 
 // Buttons & inputs' radius
 $border-radius:    5px;
