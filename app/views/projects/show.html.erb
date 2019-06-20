@@ -1,9 +1,9 @@
 <div class="container" id="project-container">
   <div class="container-title">
-    <h3><%= @project.name %> </h1>
+    <h2><%= @project.name %> </h2>
       <%= link_to 'New test', new_project_test_path(@project), class:'btn btn-warning' %>
   </div>
-    <h6 class="project-link"><%= link_to "#{current_user.organization.name}", organization_path %></h4>
+    <h6 class="project-link"><%= link_to "#{current_user.organization.name}", organization_path %></h6>
 
     <div class="project-cards">
 
@@ -12,9 +12,9 @@
         <%= link_to project_test_path(@project, test) do %>
           <div class="project-card">
               <% if test.name.length >= 19  %>
-                <h6><%= test.name.slice(0, 19) %>[...]</h6>
+                <h5><%= test.name.slice(0, 19) %>[...]</h5>
               <% else %>
-                <h6><%= test.name %></h6>
+                <h5><%= test.name %></h5>
               <% end %>
               <p><i class="far fa-calendar-alt"></i> <%= test.updated_at.strftime"%d %B %Y at %H:%M" %></p>
               <div class="correct">
@@ -31,9 +31,9 @@
         <%= link_to project_test_path(@project, test) do %>
           <div class="project-card">
             <% if test.name.length >= 19  %>
-              <h6><%= test.name.slice(0, 19) %>[...]</h6>
+              <h5><%= test.name.slice(0, 19) %>[...]</h5>
             <% else %>
-              <h6><%= test.name %></h6>
+              <h5><%= test.name %></h5>
             <% end %>
             <p><i class="far fa-calendar-alt"></i> <%= test.updated_at.strftime"%d %B %Y at %H:%M" %></p>
             <div>
@@ -49,9 +49,9 @@
       <% @no_results_tests.each do |test| %>
         <div class="project-card">
           <% if test.name.length >= 25  %>
-            <h6><%= test.name.slice(0, 25) %>[...]</h6>
+            <h5><%= test.name.slice(0, 25) %>[...]</h5>
           <% else %>
-            <h6><%= test.name %></h6>
+            <h5><%= test.name %></h5>
           <% end %>
           <p>Waiting for first test!</p>
           <div>
