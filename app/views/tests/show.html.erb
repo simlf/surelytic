@@ -15,72 +15,75 @@
 
 
 
-  <div class="container head-results">
-    <div class="container">
-      <div class="img-one"><%= image_tag "analystics.jpg" %>
-        <h2><%=@test.name %>
-          <div class="edit">
-          <button type="button" class="btn btn-primary">
-          <%= link_to '✎ Edit', edit_project_test_path %>
-          </button>
-          </div>
-        </h2>
+          <div class="container">
+             <h1><%=@test.name %><div class="edit">
+                      <button type="button" class="btn btn-primary">
+                      <%= link_to '✎ Edit', edit_project_test_path %>
+                      </button></h1>
+                  <h2> <%= link_to 'Project name', organization_path  %>  </h2>
 
-      </div>
-    </div>
-  </div>
-
-
-
-    <div class="container info-results">
-      <P><i class="far fa-calendar-alt"> </i> <%= @last_result.created_at.strftime"%d %B %Y at %H:%M" %></P>
-      <p> Test type :  <%= @test.ga_report_type.capitalize %></p>
-      <p> Regex used : <%= @test.event_category_regex %> </p>
-    </div>
-
-
-
-          <div class="position-h4">
-              <h3>Last Run</h3>
+                    </div>
           </div>
 
 
-  <div class="container test-results d-flex justify-content-center">
-    <div class=" cards">
 
 
-         <!--  <div class="card card-test title ">
-
-          <div class="position-h5">
-          <h5> All run details </h5>
-          </div>
-        </div> -->
-
-        <div class="card card-project card-test ">
-          <h4><%= @last_result.number_total_values %></h4>
-          <p>Total transactions</p>
-        </div>
-
-        <div class="card card-project card-test ">
-          <h4> <%= @last_result.number_incorrect_values %> </h4>
-          <p>Total incorrect transactions</p>
 
 
-        </div>
 
-        <div class="card card-project card-test ">
-          <h6>Percentage: <strong><%=percentage_between_results(@last_result, @before_last_result) %> %</strong> </h6><h6>Transactions: <strong> <%= diff_between_results(@last_result, @before_last_result)%></strong></H6>
-          <p>Hits delta / previous run</p>
-        </div>
-    </div>
-  </div>
+
 
 <div class="container">
-  <div class=" card background-test">
-      <div class="position-h4">
-      <h3>Previous last
-      5 runs </h3>
+  <div class="result d-flex ">
+
+
+
+        <div class="card-result">
+          <div class="results d-flex">
+           <div class="circle"><i class="far fa-calendar-alt"> </i></div>
+          <div class="result-info">
+              <h3>Date run</h3>
+              <P><%= @last_result.created_at.strftime"%d %B %Y at %H:%M" %></P>
+          </div>
+          </div>
+        </div>
+
+
+
+
+
+      <div class="card-result ">
+        <div class="results d-flex">
+          <div class="circle"><i class="fas fa-chart-line"></i></div>
+            <div class="result-info">
+              <h3>Test type</h3>
+              <p><%= @test.ga_report_type.capitalize %></p>
+            </div>
+        </div>
       </div>
+
+
+
+      <div class="card-result">
+        <div class="results d-flex">
+          <div class="circle"><i class="fas fa-laptop-code"></i></div>
+            <div class="result-info">
+               <h3>Regex </h3>
+                <p><%= @test.event_category_regex %> </p>
+            </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+<br>
+<br>
+
+<div class="container chart">
+      <h2>Previous last 5 runs </h2>
+
       <canvas
       id="chart-double-bar"
       data-chart-labels="<%= @chart_data_labels.to_json %>"
@@ -88,12 +91,27 @@
       data-chart-correct="<%= @chart_data_correct.to_json %>"
       >
       </canvas>
-  </div>
-</div>
+
   <% end %>
 
 
+    <div class="result-container">
 
+      <div class="card p-0">
+        <div class="card-result-header"><p>Total transactions</p></div>
+          <div class="card-result-detail"><h6><%= @last_result.number_total_values %></h6></div>
+      </div>
 
+      <div class="card p-0">
+        <div class="card-result-header"><p>Total incorrect </p></div>
+          <div class="card-result-detail"> <h6> <%= @last_result.number_incorrect_values %> </h6></div>
+      </div>
 
+      <div class="card p-0">
+        <div class="card-result-header"> <p>Hits delta / previous run</p></div>
+      <div class="card-result-detail"><h6><strong><%=percentage_between_results(@last_result, @before_last_result) %> %</strong> </h6></div>
+      <div class="card-result-detail"><h6><strong> <%= diff_between_results(@last_result, @before_last_result)%></strong></H6></div>
+      </div>
+    </div>
+</div>
 
