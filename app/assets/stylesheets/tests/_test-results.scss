@@ -1,4 +1,5 @@
 
+
 .result {
 
     margin-top: 17px;
@@ -11,6 +12,7 @@
 .results {
   padding-top: 5px;
 
+
   p{
     color:$heavy_blue;
     font-family: w
@@ -18,7 +20,7 @@
 
 
 
-}
+
 
 .result-container{
   display: grid;
@@ -81,3 +83,22 @@
   // text-align: center;
   margin-top:55px;
 }
+
+
+
+ .background {
+    background-color:$light_grey;
+    padding: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+

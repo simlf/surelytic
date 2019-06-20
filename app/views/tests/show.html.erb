@@ -1,4 +1,4 @@
-
+<div class="background">
 
 
 <div class="link">
@@ -15,6 +15,7 @@
 
 
 
+
           <div class="container">
              <h1><%=@test.name %><div class="edit">
                       <button type="button" class="btn btn-primary">
@@ -23,7 +24,11 @@
                   <h2> <%= link_to 'Project name', organization_path  %>  </h2>
 
                     </div>
+
           </div>
+
+
+
 
 
 
@@ -35,6 +40,7 @@
 
 <div class="container">
   <div class="result d-flex ">
+
 
 
 
@@ -52,6 +58,7 @@
 
 
 
+
       <div class="card-result ">
         <div class="results d-flex">
           <div class="circle"><i class="fas fa-chart-line"></i></div>
@@ -59,6 +66,7 @@
               <h3>Test type</h3>
               <p><%= @test.ga_report_type.capitalize %></p>
             </div>
+
         </div>
       </div>
 
@@ -72,6 +80,7 @@
                 <p><%= @test.event_category_regex %> </p>
             </div>
         </div>
+t
       </div>
 
   </div>
@@ -84,6 +93,7 @@
 <div class="container chart">
       <!-- <h2>Previous last 5 runs </h2> -->
 
+
       <canvas
       id="chart-double-bar"
       data-chart-labels="<%= @chart_data_labels.to_json %>"
@@ -92,10 +102,12 @@
       >
       </canvas>
 
+
   <% end %>
 
 
     <div class="result-container">
+
 
       <div class="card p-0">
         <div class="card-result-header"><p>Total transactions</p></div>
