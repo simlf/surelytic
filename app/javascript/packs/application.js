@@ -67,50 +67,58 @@ if (document.getElementById('chart-double-bar')){
   };
 }
 
-// Chart JS setup - Simple bars
+// Chart JS setup - Simple line
 
-if (document.getElementById('chart-simple-bar')){
-  const chartLabels = document.getElementById('chart-simple-bar').dataset.chartLabels;
-  const chartIncorrectValues = document.getElementById('chart-simple-bar').dataset.chartErrors;
-
-  window.onload = function() {
-    const ctx = document.getElementById('chart-simple-bar').getContext('2d');
-    window.myBar = new Chart(ctx, {
-      type: 'bar',
+if (document.getElementById('chart-line')){
+ var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var config = {
+      type: 'line',
       data: {
-        labels : JSON.parse(chartLabels),
+        labels: ['06/14', '06/15', '06/16', '06/17', '06/18', '06/19', '06/20'],
         datasets: [{
-        label: '',
-        data : JSON.parse(chartIncorrectValues),
-        backgroundColor: [
-          '#2B81C5',
-          '#62D459',
-          '#F2C245',
-          '#EB893A',
-          '#CB4EE0',
-          '#F8F8F8'
-        ],
-        borderWidth: 1
+          label: '',
+          fill: false,
+          backgroundColor: '#F1F9FB',
+          borderColor: '#405398',
+          data: [20,21,23,20,32,20,28],
         }]
       },
       options: {
-        responsive: false,
+        responsive: true,
+        title: {
+          display: false
+        },
+        tooltips: {
+          mode: 'index',
+          intersect: false,
+        },
+        hover: {
+          mode: 'nearest',
+          intersect: true
+        },
         scales: {
           xAxes: [{
-            ticks: {
-              maxRotation: 90,
-              minRotation: 80
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Date'
             }
           }],
           yAxes: [{
-            ticks: {
-              beginAtZero: true
+            display: true,
+            scaleLabel: {
+              display: true,
+              labelString: 'Credits consumed'
             }
           }]
         }
       }
-    });
-  };
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('chart-line').getContext('2d');
+      window.myLine = new Chart(ctx, config);
+    };
 }
 
 
