@@ -13,12 +13,14 @@
 
 
 
-          <div class="container">
-             <h1><%=@test.name %><div class="edit d-flex">
-                      <button type="button" class="btn btn-primary">
+
+          <div class="container head">
+             <h1><%=@test.name %><div class="edit">
+                      <button type="button" class="btn btn-warning">
+
                       <%= link_to '✎ Edit', edit_project_test_path %>
                       </button></h1>
-                  <h2> <%= link_to 'Project name', organization_path  %>  </h2>
+                  <h2> <%= link_to 'Project', organization_path  %>  </h2>
 
                     </div>
           </div>
@@ -76,7 +78,6 @@
                 <p><%= @test.event_category_regex %> </p>
             </div>
         </div>
-t
       </div>
 
   </div>
@@ -105,20 +106,21 @@ t
     <div class="result-container">
 
 
-      <div class="card p-0">
+      <div class="card result-body p-0">
         <div class="card-result-header"><p>Total transactions</p></div>
           <div class="card-result-detail"><h6><%= @last_result.number_total_values %></h6></div>
       </div>
 
-      <div class="card p-0">
+      <div class="card result-body p-0">
         <div class="card-result-header"><p>Total incorrect </p></div>
           <div class="card-result-detail"> <h6> <%= @last_result.number_incorrect_values %> </h6></div>
       </div>
 
-      <div class="card p-0">
+      <div class="card result-body p-0">
         <div class="card-result-header"> <p>Hits delta / previous run</p></div>
-      <div class="card-result-detail"><h6><strong><%=percentage_between_results(@last_result, @before_last_result) %> %</strong> </h6></div>
-      <div class="card-result-detail"><h6><strong> <%= diff_between_results(@last_result, @before_last_result)%></strong></H6></div>
+      <div class="card-result-detail">
+        <div><h6><strong><%=percentage_between_results(@last_result, @before_last_result) %> %</strong> </h6></div>
+        <div><h6><strong> <%= diff_between_results(@last_result, @before_last_result)%></strong></H6></div>
       </div>
     </div>
 </div>
