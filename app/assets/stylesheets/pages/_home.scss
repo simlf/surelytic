@@ -1,6 +1,16 @@
 .sub-img {
   width: 200px;
   text-align: center;
+
+  p{
+    padding-top: 30px;
+  }
+}
+
+.all {
+ background-color: white;
+ padding-bottom: 70px;
+ margin-bottom: -40px;
 }
 
 .price_img {
@@ -50,7 +60,7 @@ justify-content: space-between;
 // justify-content: space-around;
 }
 .ligne2 {
-padding: 15px 0;
+padding: 75px 0;
 margin: 100px 0;
 display: flex;
 flex-wrap: wrap;
@@ -58,7 +68,7 @@ align-items: center;
 justify-content: space-between;
 }
 
-.ligne4 {
+.ligne-4 {
 padding: 15px 0;
 margin: 100px 0;
 
@@ -101,7 +111,7 @@ flex-direction: column;
 min-width: 0;
 word-wrap: break-word;
 background-clip: border-box;
-margin-top: 40PX;
+margin-top: 40px;
 
   .ligne {
     margin-top: 0px;
@@ -177,4 +187,7 @@ background-clip: border-box;
     max-width: 1000px;
   }
 }
+
+
+
 

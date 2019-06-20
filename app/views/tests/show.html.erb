@@ -1,4 +1,4 @@
-
+<div class="background">
 
 
 <div class="link">
@@ -17,7 +17,7 @@
 
   <div class="container head-results">
     <div class="container">
-      <div class="img-one"><%= image_tag "analystics.jpg" %>
+
         <h2><%=@test.name %>
           <div class="edit">
           <button type="button" class="btn btn-primary">
@@ -26,7 +26,7 @@
           </div>
         </h2>
 
-      </div>
+
     </div>
   </div>
 
@@ -45,7 +45,9 @@
           </div>
 
 
-  <div class="container test-results d-flex justify-content-center">
+  <div class="container test-results ">
+    <div class="row">
+      <div class="col xl-12">
     <div class=" cards">
 
 
@@ -64,8 +66,6 @@
         <div class="card card-project card-test ">
           <h4> <%= @last_result.number_incorrect_values %> </h4>
           <p>Total incorrect transactions</p>
-
-
         </div>
 
         <div class="card card-project card-test ">
@@ -73,9 +73,13 @@
           <p>Hits delta / previous run</p>
         </div>
     </div>
+    </div>
   </div>
 
-<div class="container">
+
+
+  <div class="row">
+      <div class="col xl-6">
   <div class=" card background-test">
       <div class="position-h4">
       <h3>Previous last
@@ -88,11 +92,14 @@
       data-chart-correct="<%= @chart_data_correct.to_json %>"
       >
       </canvas>
+        </div>
+</div>
+
   </div>
 </div>
   <% end %>
 
-
+</div>
 
 
 
