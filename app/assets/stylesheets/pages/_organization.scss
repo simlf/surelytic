@@ -1,12 +1,12 @@
+#orga-container{
+  padding: 20px 0;
+}
+
 // Styles for top elements : pricing, credits...
 
 #orga-admin-infos{
   display: flex;
 }
-
-// #orga-container > h3{
-//   margin-top: 60px;
-// }
 
 .orga-section-bar{
   display: flex;
@@ -21,7 +21,7 @@
   margin-right: 20px;
   text-align: center;
   border-radius: 0 0 15px 0;
-  box-shadow: 0px 2px 8px -1px rgba(0,0,0,0.25);
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.15);
 }
 
 .orga-cta{
@@ -73,7 +73,7 @@
 .orga-project-card{
   background-color: white;
   border-radius: 0 0 15px 0;
-  box-shadow: 0px 2px 8px -1px rgba(0,0,0,0.25);
+  box-shadow: 0px 2px 4px -1px rgba(0,0,0,0.15);
 }
 
 .orga-link-project{
