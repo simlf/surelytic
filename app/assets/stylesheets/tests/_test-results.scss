@@ -1,107 +1,104 @@
-.test-results {
+
+
+.result {
+
+    margin-top: 17px;
+    /* padding: 5px 53px; */
+    border-radius: 3px;
+    border-color: #0085aa;
+    justify-content: space-around;
+}
+
+.results {
+  padding-top: 5px;
+
+
+  p{
+    color:$heavy_blue;
+    font-family: w
+  }
+
+
+
+
+
+.result-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 15PX;
+  margin-top: 50PX;
+  margin-bottom: 50PX;
+}
+.fa-chart-bar{
+  background-color: white
+}
+
+.circle{
+     background-color: #99D3D9;
+    color: #405398;
     text-align: center;
-    margin-bottom: 100px;
-    height: 150px;
-    margin-top: 80px;
-
-
- .position-h5{
-  margin: 45px;
-  color:$heavy_blue;
-
- }
- .card-test{
-    //   margin-bottom: 150PX;
-    // margin-top: 100PX;
+    padding-top: 10PX;
 }
- .title{
-  padding: 20px 20px;
+
+.card-result{
+  position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(44, 56, 71, 0.125);
+    border-radius: 5px;
+    padding: 5PX;
+    padding-right: 30PX;
+}
+
+.edit {
+
+}
+
+
+.card-result-header{
+  background-color:$heavy_blue;
+  color:white;
+  text-align: center;
   justify-content: center;
+  padding-top: 13PX;
 
- }
+}
+.card-result-detail {
+  font-weight: bolder;
+  font-size: 100px;
 
 
+  h6 {
+    font-size:1.75rem;
+  }
 
 
 }
 
-//---------------- Last run details ---------------------------
+.chart {
+  // text-align: center;
+  margin-top:55px;
+}
+
 
 
  .background {
     background-color:$light_grey;
     padding: 25px;
 }
-.background-test {
-  margin-bottom:40px;
-  background-color:$light_grey;
-  padding: 25px;
-
-
-}
-//---------------- 5 Last run  ---------------------------
-
- .position-h4{
-
-  color:$heavy_blue;
-  text-align: center;
-
- }
-
-
-.last-test{
-      margin: 26px 123px;
-}
 
 
 
-.head-results{
-  text-align: center;
-  margin-bottom: 40px;
-  height: 150px;
-   border-bottom: 1px solid $heavy_blue;
-
-  .img-one{
-      margin-top: 50px;
-  }
-}
-
-.info-results{
-  text-align: center;
-  margin-bottom: 30px;
-  height: 150px;
-  margin-top: 100px;
-  border-bottom: 1px solid $heavy_blue;
-
-p {
-  color:$heavy_blue;
-}
-}
-
-.edit{
-      display: contents;
-
-      a{
-        color:white;
-
-      }
 
 
-}
 
-.btn-edits {
-  margin-left: 10px;
-  color:black;
-}
 
-.cards-results {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 16px;
-}
 
-.link {
 
-    margin-left: 10px;
-    padding: 4px;
-}
+
+
+

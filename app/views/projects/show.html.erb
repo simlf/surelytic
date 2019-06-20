@@ -1,24 +1,26 @@
-<div class="background">
+<div class="container" id="project-container">
+  <div class="container-title">
+    <h3><%= @project.name %> </h1>
+      <%= link_to 'New test', new_project_test_path(@project), class:'btn btn-warning' %>
+  </div>
+    <h6 class="project-link"><%= link_to "#{current_user.organization.name}", organization_path %></h4>
 
-  <%= link_to "Back to #{current_user.organization.name}", organization_path, class:"btn btn-warning" %>
-
-<div class="container">
-    <h3><%= @project.name %> <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, new_project_test_path(@project)  %></h1>
-
-    <div class="cards">
+    <div class="project-cards">
 
     <% if @incorrect_tests.present? %>
       <% @incorrect_tests.each do |test| %>
         <%= link_to project_test_path(@project, test) do %>
-          <div class="card card-project">
-            <% if test.name.length >= 19  %>
-              <h6><%= test.name.slice(0, 19) %> [...]</h6>
-            <% else %>
-              <h6><%= test.name %></h6>
-            <% end %>
-            <p><i class="far fa-calendar-alt"></i> <%= test.updated_at.strftime"%d %B %Y at %H:%M" %></p>
-            <i class="far fa-times-circle"></i>
-            <button class="btn btn-primary">See report</button>
+          <div class="project-card">
+              <% if test.name.length >= 19  %>
+                <h6><%= test.name.slice(0, 19) %>[...]</h6>
+              <% else %>
+                <h6><%= test.name %></h6>
+              <% end %>
+              <p><i class="far fa-calendar-alt"></i> <%= test.updated_at.strftime"%d %B %Y at %H:%M" %></p>
+              <div class="correct">
+                <i class="far fa-times-circle"></i>
+              </div>
+              <button class="btn btn-primary">See report</button>
           </div>
         <% end %>
       <% end %>
@@ -27,14 +29,16 @@
     <% if @correct_tests.present? %>
       <% @correct_tests.each do |test| %>
         <%= link_to project_test_path(@project, test) do %>
-          <div class="card card-project">
+          <div class="project-card">
             <% if test.name.length >= 19  %>
-              <h6><%= test.name.slice(0, 19) %> [...]</h6>
+              <h6><%= test.name.slice(0, 19) %>[...]</h6>
             <% else %>
               <h6><%= test.name %></h6>
             <% end %>
             <p><i class="far fa-calendar-alt"></i> <%= test.updated_at.strftime"%d %B %Y at %H:%M" %></p>
+            <div>
             <i class="far fa-check-circle"></i>
+            </div>
             <button class="btn btn-primary">See report</button>
           </div>
         <% end %>
@@ -43,18 +47,19 @@
 
     <% if @no_results_tests.present? %>
       <% @no_results_tests.each do |test| %>
-        <div class="card card-project">
+        <div class="project-card">
           <% if test.name.length >= 25  %>
-            <h6><%= test.name.slice(0, 25) %> [...]</h6>
+            <h6><%= test.name.slice(0, 25) %>[...]</h6>
           <% else %>
             <h6><%= test.name %></h6>
           <% end %>
+          <p>Waiting for first test!</p>
+          <div>
           <i class="fas fa-history"></i>
-          <p>Come back later, there isn't any result yet!</p>
+          </div>
         </div>
       <% end %>
     <% end %>
 
     </div>
   </div>
-</div>
