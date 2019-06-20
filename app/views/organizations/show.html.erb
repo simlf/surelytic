@@ -2,11 +2,8 @@
 
   <div id='orga-admin-infos'>
     <div class="orga-credits-monthly">
-      <div class="orga-blue-header">
-        <div class="orga-big-number">150</div>
-        <div>Credits/month</div>
-      </div>
-        <button type="button" class="btn btn-info orga-cta">Upgrade plan</button>
+      <div class="orga-big-number">150</div>
+      <div>Credits/month</div>
     </div>
 
     <div class="orga-credits-left">
@@ -22,7 +19,7 @@
     </div>
   </div>
 
-  <h3 class="orga-section-bar">Credit consumption history</h3>
+  <h2 class="orga-section-bar">Credit consumption history</h2>
 
   <canvas
   class="graph"
@@ -31,7 +28,7 @@
   </canvas>
 
   <div class="orga-section-bar">
-    <h3>Projects overview</h3>
+    <h2>Projects overview</h2>
     <%= link_to "Create a project", new_project_path, class: "btn btn-warning"  %>
   </div>
 
@@ -41,15 +38,20 @@
       <div class="orga-project-card">
         <div class="orga-project-card-header">
           <div class="orga-project-card-header-title">
-            <h4><strong><%= project.name %></strong></h4>
+            <div>
+              <h4><strong><%= project.name %></strong></h4>
+              <div class="orga-tests-running"><%= project.tests.count %> test(s) running</div>
+            </div>
+
+
             <%= link_to(project_path(project)) do %>
               <i class="fas fa-eye orga-link-project"></i>
             <% end %>
+
           </div>
-          <div><%= project.tests.count %> test(s) running</div>
         </div>
         <div class="orga-project-card-body">
-          <span class="error-number"><%=  error = tests_with_results.map {|test| test.results.last.number_incorrect_values }.sum %></span> errors on last run</div>
+          <span class="error-number"> <strong> <%=  error = tests_with_results.map {|test| test.results.last.number_incorrect_values }.sum %></span></strong> errors on last run</div>
       </div>
     <% end %>
   </div>
