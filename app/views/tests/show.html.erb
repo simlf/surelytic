@@ -14,12 +14,10 @@
 
           <div class="container head">
             <div class="edit"> <h1><%=@test.name %></h1>
-                      <button type="button" class="btn btn-warning">
-                      <%= link_to '✎ Edit', edit_project_test_path %>
-                      </button>
+                      <%= link_to '✎ Edit', edit_project_test_path, class: 'btn btn-primary' %>
 
                 </div>
-                <h4 class="test-link"> <%= link_to 'Project', organization_path%>  </h4>
+                <h4 class="test-link"> <%= link_to 'Back to project', project_path(@test.project)%>  </h4>
 
           </div>
 
@@ -43,8 +41,8 @@
           <div class="results d-flex">
            <div class="circle"><i class="far fa-calendar-alt"> </i></div>
           <div class="result-info">
-              <h3>Last run</h3>
-              <P><%= @last_result.created_at.strftime"%d %B %Y at %H:%M" %></P>
+              <p>Last run</p>
+              <h5><%= @last_result.created_at.strftime"%d %B %Y at %H:%M" %></h5>
           </div>
           </div>
         </div>
@@ -58,8 +56,8 @@
         <div class="results d-flex">
           <div class="circle"><i class="fas fa-chart-line"></i></div>
             <div class="result-info">
-              <h3>Test type</h3>
-              <p><%= @test.ga_report_type.capitalize %></p>
+              <p>Test type</p>
+              <h5><%= @test.ga_report_type.capitalize %></h5>
             </div>
 
         </div>
@@ -71,8 +69,8 @@
         <div class="results d-flex">
           <div class="circle"><i class="fas fa-laptop-code"></i></div>
             <div class="result-info">
-               <h3>Regex </h3>
-                <p><%= @test.event_category_regex %> </p>
+               <p>Regex used</p>
+                <h5><%= @test.event_category_regex %> </h5>
             </div>
         </div>
       </div>

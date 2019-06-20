@@ -76,7 +76,7 @@ if (document.getElementById('chart-line')){
       data: {
         labels: ['06/14', '06/15', '06/16', '06/17', '06/18', '06/19', '06/20'],
         datasets: [{
-          label: '',
+          label: 'Credits consumed',
           fill: false,
           backgroundColor: '#F1F9FB',
           borderColor: '#405398',
