@@ -1,24 +1,29 @@
-<div class="container">
+<div class="container" id="orga-container">
 
-  <div class='d-flex'>
-  <!-- Credits / Users info -->
-    <div class="pricing">
-      <div>150 monthly credits</div>
-      <div>Free plan</div>
-      <div><%= link_to "Upgrade plan"%></div>
+<!-- <section></section> -->
+  <div id='orga-admin-infos'>
+    <div class="orga-credits-monthly">
+      <div class="orga-blue-header">
+        <div class="orga-big-number">150</div>
+        <div>Credits/month</div>
+      </div>
+        <button type="button" class="btn btn-info orga-cta">Upgrade plan</button>
     </div>
 
-    <div>
-      <%= @organization.current_credits %> Credit(s) left <br>
-      <%= link_to "Purchase extra credits"%>
+    <div class="orga-credits-left">
+      <div class="orga-big-number"><%= @organization.current_credits %></div>
+      <div>Credit(s) left</div>
+      <button type="button" class="btn btn-info orga-cta">Extra credits</button>
     </div>
 
-    <div>
-      <%= @organization.users.count %> user(s) <br>
-      <%= link_to 'Manage users', new_organization_user_path%>
+    <div class="orga-users">
+      <div class="orga-big-number"><%= @organization.users.count %></div>
+      <div>user(s)</div>
+      <button type="button" class="btn btn-info orga-cta">Manage users</button>
     </div>
   </div>
 
+  <h3 class="orga-section-bar">Credit consumption history</h3>
 
   <canvas
   class="graph"
@@ -26,21 +31,29 @@
   >
   </canvas>
 
-  <div class="projects-grid">
-    <% @projects.each do |project| %>
-      <div>
-        <%= project.name %>
-        <%= project.tests.count %> test(s)
-        <%= link_to 'Eye picto', project_path(project) %>
-      </div>
-
-      <% tests_with_results = project.tests.select {|test| !test.results.empty? } %>
-
-      <div><%=  error = tests_with_results.map {|test| test.results.last.number_incorrect_values }.sum %> incorrect values</div>
-    <% end %>
+  <div class="orga-section-bar">
+    <h3>Projects overview</h3>
+    <%= link_to "Create a project", new_project_path, class: "btn btn-warning"  %>
   </div>
 
-
+  <div id="orga-projects-grid">
+    <% @projects.each do |project| %>
+      <% tests_with_results = project.tests.select {|test| !test.results.empty? } %>
+      <div class="orga-project-card">
+        <div class="orga-project-card-header">
+          <div class="orga-project-card-header-title">
+            <h4><%= project.name %> </h4>
+            <%= link_to(project_path(project)) do %>
+              <i class="fas fa-eye orga-link-project"></i>
+            <% end %>
+          </div>
+          <div><%= project.tests.count %> test(s) running</div>
+        </div>
+        <div class="orga-project-card-body">
+          <span class="error-number"><%=  error = tests_with_results.map {|test| test.results.last.number_incorrect_values }.sum %></span> errors on last run</div>
+      </div>
+    <% end %>
+  </div>
 
 </div>
 

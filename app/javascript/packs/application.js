@@ -74,26 +74,19 @@ if (document.getElementById('chart-line')){
     var config = {
       type: 'line',
       data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+        labels: ['06/14', '06/15', '06/16', '06/17', '06/18', '06/19', '06/20'],
         datasets: [{
-          label: 'My First dataset',
-          backgroundColor: 'white',
-          borderColor: 'blue',
-          data: [12,11,10,9,8,7],
+          label: '',
           fill: false,
-        }, {
-          label: 'My Second dataset',
-          fill: false,
-          backgroundColor: 'white',
-          borderColor: 'blue',
-          data: [8,6,4,12,7,5],
+          backgroundColor: '#F1F9FB',
+          borderColor: '#405398',
+          data: [20,21,23,20,32,20,28],
         }]
       },
       options: {
         responsive: true,
         title: {
-          display: true,
-          text: 'Chart.js Line Chart'
+          display: false
         },
         tooltips: {
           mode: 'index',
@@ -108,14 +101,14 @@ if (document.getElementById('chart-line')){
             display: true,
             scaleLabel: {
               display: true,
-              labelString: 'Month'
+              labelString: 'Date'
             }
           }],
           yAxes: [{
             display: true,
             scaleLabel: {
               display: true,
-              labelString: 'Value'
+              labelString: 'Credits consumed'
             }
           }]
         }

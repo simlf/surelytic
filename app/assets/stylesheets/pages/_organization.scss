@@ -1,0 +1,93 @@
+// Styles for top elements : pricing, credits...
+
+#orga-admin-infos{
+  display: flex;
+}
+
+// #orga-container > h3{
+//   margin-top: 60px;
+// }
+
+.orga-section-bar{
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0 10px 0;
+  align-items: center;
+}
+
+// Commmon style for all flexed divs
+#orga-admin-infos > div{
+  background-color: white;
+  margin-right: 20px;
+  text-align: center;
+  border-radius: 0 0 15px 0;
+  box-shadow: 0px 2px 8px -1px rgba(0,0,0,0.25);
+}
+
+.orga-cta{
+  margin: 25px 0px 10px 0px;
+}
+
+.orga-blue-header{
+  background-color: $heavy_blue;
+  padding-bottom: 10px;
+  margin: 0;
+  color: white;
+}
+
+.orga-big-number{
+  font-size: 5em;
+  font-weight: bold;
+}
+
+.orga-credits-monthly{
+  width: 250px;
+}
+
+.orga-credits-left{
+  width: 200px;
+}
+
+
+.orga-users{
+  width: 200px;
+}
+
+
+// Styles for projects grid
+#orga-projects-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+}
+
+.orga-project-card-header{
+  background-color: $light_blue;
+  padding: 10px;
+}
+
+.orga-project-card-body{
+  padding: 10px 10px;
+}
+
+.orga-project-card{
+  background-color: white;
+  border-radius: 0 0 15px 0;
+  box-shadow: 0px 2px 8px -1px rgba(0,0,0,0.25);
+}
+
+.orga-link-project{
+  color: $heavy_blue;
+}
+
+.orga-project-card-header-title{
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.error-number{
+  color: $red;
+  font-size: 1.5em;
+  font-weight: bold;
+}
