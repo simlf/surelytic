@@ -1,8 +1,8 @@
-<div class="container">
+<div class="background">
 
   <%= link_to "Back to #{current_user.organization.name}", organization_path, class:"btn btn-warning" %>
 
-  <div class="background">
+<div class="container">
     <h3><%= @project.name %> <%= link_to '<i class="fas fa-plus-circle"></i>'.html_safe, new_project_test_path(@project)  %></h1>
 
     <div class="cards">
