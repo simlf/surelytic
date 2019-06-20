@@ -17,7 +17,7 @@
     color:$heavy_blue;
     font-family: w
   }
-
+}
 
 
 
@@ -25,9 +25,9 @@
 .result-container{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 15PX;
-  margin-top: 50PX;
-  margin-bottom: 50PX;
+  grid-gap: 15px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 .fa-chart-bar{
   background-color: white
@@ -37,7 +37,7 @@
      background-color: #99D3D9;
     color: #405398;
     text-align: center;
-    padding-top: 10PX;
+    padding-top: 10px;
 }
 
 .card-result{
@@ -50,8 +50,8 @@
     background-clip: border-box;
     border: 1px solid rgba(44, 56, 71, 0.125);
     border-radius: 5px;
-    padding: 5PX;
-    padding-right: 30PX;
+    padding: 5px;
+    padding-right: 30px;
 }
 
 .edit {
@@ -64,7 +64,7 @@
   color:white;
   text-align: center;
   justify-content: center;
-  padding-top: 13PX;
+  padding-top: 13px;
 
 }
 .card-result-detail {
@@ -87,18 +87,6 @@
 
 
  .background {
-    background-color:$light_grey;
+    background-color: $light_grey;
     padding: 25px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
