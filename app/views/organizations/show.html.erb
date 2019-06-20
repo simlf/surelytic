@@ -1,65 +1,47 @@
-<div>
-  Projects Overview for <%= @organization.name %>
-  <%= link_to "Create new project", new_project_path%>
-</div>
+<div class="container">
 
+  <div class='d-flex'>
+  <!-- Credits / Users info -->
+    <div class="pricing">
+      <div>150 monthly credits</div>
+      <div>Free plan</div>
+      <div><%= link_to "Upgrade plan"%></div>
+    </div>
 
-<hr>
+    <div>
+      <%= @organization.current_credits %> Credit(s) left <br>
+      <%= link_to "Purchase extra credits"%>
+    </div>
 
-
-<% @projects.each do |project| %>
-  <div>
-    Project name : <%= project.name %>
-    <%= link_to 'project details', project_path(project) %>
-    <%= project.tests.count %> test(s)
+    <div>
+      <%= @organization.users.count %> user(s) <br>
+      <%= link_to 'Manage users', new_organization_user_path%>
+    </div>
   </div>
 
-  <% tests_with_results = project.tests.select {|test| !test.results.empty? } %>
 
-  <div>Errors in last run for the project : <%=  error = tests_with_results.map {|test| test.results.last.number_incorrect_values }.sum %></div>
+  <canvas
+  class="graph"
+  id="chart-line"
+  >
+  </canvas>
 
-  <% if project.tests.exists? %>
-    <% project.tests.each do |test| %>
+  <div class="projects-grid">
+    <% @projects.each do |project| %>
       <div>
-        <%= test.name.capitalize %> |
-        <%= test.frequency.capitalize %> |
-        <%= link_to 'details'.html_safe, project_test_path(project, test) %>
+        <%= project.name %>
+        <%= project.tests.count %> test(s)
+        <%= link_to 'Eye picto', project_path(project) %>
       </div>
+
+      <% tests_with_results = project.tests.select {|test| !test.results.empty? } %>
+
+      <div><%=  error = tests_with_results.map {|test| test.results.last.number_incorrect_values }.sum %> incorrect values</div>
     <% end %>
-  <% else %>
-    <div>There isn't any test yet in <%= project.name %></div>
-    <%= link_to 'New test', new_project_test_path(project.id) %>
-  <% end %>
-  <br>
-<% end %>
+  </div>
 
 
-<hr>
 
-
-<%= link_to "Extra credits"%>
-<div><%= @organization.current_credits %> Credits available</div>
-
-<hr>
-
-<%= link_to 'New user', new_organization_user_path%>
-<div>
-  <%= @organization.users.count %> user(s)
 </div>
 
-<% @organization.users.each do |user| %>
-  <div class="user-card"><%= user.email %></div>
-<% end%>
 
-
-<hr>
-
-
-<div>Projects Stats</div>
-<canvas
-class="graph"
-id="chart-simple-bar"
-data-chart-labels="<%= @chart_data_labels.to_json %>"
-data-chart-errors="<%= @chart_data_incorrect.to_json %>"
->
-</canvas>
