@@ -1,8 +1,17 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,500,700&display=swap
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Work+Sans:200,400,700&display=swap
 ');
 
 // Define fonts for body and headers
 
-$body-font: "Work Sans", "sans-serif";
-// $headers-font: "Roboto Slab", "cursive";
+$headers-font:'Ubuntu', sans-serif;
+$body-font:'Work Sans', sans-serif;
+
 // TBD : light, bold & cie to be loaded as well
+$font-size-base:          12px !default;
+
+$font-size-h1:            40px !default;
+$font-size-h2:            32px !default;
+$font-size-h3:            16px !default;
+$font-size-h4:            16px !default;
+$font-size-h5:            12px !default;
+$font-size-h6:            12px !default;
