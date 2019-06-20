@@ -1,9 +1,12 @@
 <div class="container" id="project-container">
   <div class="container-title">
-    <h2><%= @project.name %> </h2>
-      <%= link_to 'New test', new_project_test_path(@project), class:'btn btn-warning' %>
+    <h1><%= @project.name %> </h1>
+      <%= link_to 'New test', new_project_test_path(@project), class:'btn btn-primary' %>
   </div>
-    <h6 class="project-link"><%= link_to "#{current_user.organization.name}", organization_path %></h6>
+
+    <h4 class="test-link"> <%= link_to 'Back to organization', organization_path%>  </h4>
+
+
 
     <div class="project-cards">
 
