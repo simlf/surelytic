@@ -5,5 +5,13 @@
 
 $headers-font:'Ubuntu', sans-serif;
 $body-font:'Work Sans', sans-serif;
-// $headers-font: "Roboto Slab", "cursive";
+
 // TBD : light, bold & cie to be loaded as well
+$font-size-base:          12px !default;
+
+$font-size-h1:            40px !default;
+$font-size-h2:            32px !default;
+$font-size-h3:            24px !default;
+$font-size-h4:            16px !default;
+$font-size-h5:            12px !default;
+$font-size-h6:            12px !default;
