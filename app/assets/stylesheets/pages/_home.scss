@@ -86,8 +86,14 @@ justify-content: space-between;
 .sub-block {
   width: 420px;
   text-align: left;
+  h1 {
+    line-height: 100%;
+  }
+  h4 {
+    font-weight: 200;
+  }
   .btn {
-    margin-bottom: 20px;
+    margin: 20px 0;
   }
 }
 
@@ -165,7 +171,7 @@ background-clip: border-box;
   margin: auto;
   }
   .style_image {
-  width: 270px;
+  width: 300px;
 }
 }
 
