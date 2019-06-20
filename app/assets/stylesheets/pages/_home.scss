@@ -7,6 +7,12 @@
   }
 }
 
+.all {
+ background-color: white;
+ padding-bottom: 70px;
+ margin-bottom: -40px;
+}
+
 .price_img {
   width: 180px;
   height: 150px;
@@ -105,7 +111,7 @@ flex-direction: column;
 min-width: 0;
 word-wrap: break-word;
 background-clip: border-box;
-margin-top: 40PX;
+margin-top: 40px;
 
   .ligne {
     margin-top: 0px;
@@ -181,4 +187,7 @@ background-clip: border-box;
     max-width: 1000px;
   }
 }
+
+
+
 
