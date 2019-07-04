@@ -129,14 +129,14 @@ project4 = Project.create!(
 
 # Tests
 
-# test1 = Test.create!(
-#   user: user1,
-#   project: project1,
-#   name: '🚀 Event category check',
-#   frequency: 'minute',
-#   ga_report_type: 'Event Category',
-#   event_category_regex:'Éditorial|Technique'
-#   )
+test1 = Test.create!(
+  user: user1,
+  project: project1,
+  name: '🚀 Event category check',
+  frequency: 'daily',
+  ga_report_type: 'Event Category',
+  event_category_regex:'Éditorial|Technique'
+  )
 
 test1bis = Test.create!(
   user: user1,
@@ -147,16 +147,16 @@ test1bis = Test.create!(
   event_action_regex:'CMP|article'
   )
 
-# test1bisbis = Test.create!(
-#   user: user1,
-#   project: project1,
-#   name: '🤠 Publication year',
-#   frequency: 'minute',
-#   ga_report_type: 'Custom Dimension',
-#   cd_index: 9,
-#   cd_regex: '2106|2017|2018|vide',
-#   cd_scope: 'ga:pageviews'
-#   )
+test1bisbis = Test.create!(
+  user: user1,
+  project: project1,
+  name: '🤠 Publication year',
+  frequency: 'daily',
+  ga_report_type: 'Custom Dimension',
+  cd_index: 9,
+  cd_regex: '2106|2017|2018|vide',
+  cd_scope: 'ga:pageviews'
+  )
 
 test2 = Test.create!(
   user: user1,
