@@ -6,7 +6,9 @@
   - mailers
 
 :schedule:
+  ga_query_job_minute:
+    cron: '* * * * *'
+    class: GaQueryJobMinute
   ga_query_job_daily:
-    cron: '42 6 * * *'
+    cron: '0 6 * * *'
     class: GaQueryJobDaily
-

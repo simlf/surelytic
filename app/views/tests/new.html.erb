@@ -10,8 +10,8 @@
 
       <%= f.input :frequency, as: :select, collection:
         [['Daily', 'daily'],
-        ['Weekly', 'weekly'],
-        ['Monthly', 'monthly']],
+        ['Weekly (available soon)', 'weekly'],
+        ['Monthly (available soon)', 'monthly']],
         :label => "At which frequency should your test run?"
       %>
 
@@ -20,19 +20,19 @@
         # ['Events', 'events'],
         # ['Goals', 'goals'],
         # ['Custom dimensions', 'cd']],
-        [['Event Category', 'event_category'],
-        ['Event Action', 'event_action'],
-        ['Event Label', 'event_label'],
+        [['Event Category (available soon)', 'event_category'],
+        ['Event Action (available soon)', 'event_action'],
+        ['Event Label (available soon)', 'event_label'],
         ['Custom Dimension', 'custom_dimension'],
-        ['EEC - Product ID', 'product_id'],
-        ['EEC - Product Name', 'product_name'],
-        ['EEC - Product Brand', 'product_brand']],
+        ['EEC - Product ID (available soon)', 'product_id'],
+        ['EEC - Product Name (available soon)', 'product_name'],
+        ['EEC - Product Brand (available soon)', 'product_brand']],
         :label => "What's the type of your test?",
         wrapper_html: { id: 'password' }
       %>
 
       <div class="test_selector" id="event_category">
-        <%= f.input  :event_category_regex, placeholder: '', :label => "Event Category (Regex)"  %>
+        <%= f.input  :event_category_regex, as: :text, placeholder: '', :label => "Event Category (Regex)"  %>
       </div>
 
       <div class="test_selector" id="event_action">
@@ -56,10 +56,11 @@
       </div>
 
       <div class="test_selector" id="custom_dimension">
-        <%= f.input  :cd_regex, placeholder: '', :label => "Custom dimension (Regex)"  %>
-        <%= f.input  :cd_index, placeholder: '', :label => "Custom dimension Index"  %>
-        <%= f.input  :cd_scope, placeholder: '', :label => "Custom dimension Scope"  %>
+        <%= f.input  :cd_regex, as: :text, placeholder: '', :label => "Custom dimension (Regex)"  %>
+        <%= f.input  :cd_index, as: :text, placeholder: '', :label => "Custom dimension Index"  %>
+        <%= f.input  :cd_scope, as: :text, placeholder: '', :label => "Custom dimension Scope"  %>
       </div>
+
     </div>
     <div class="form-actions">
       <%= f.button :submit, 'Create test', class: 'btn btn-primary' %>

@@ -10,6 +10,13 @@ p 'Models destroyed'
 
 # Organizations
 
+organization0 = Organization.create!(
+  name: "Groupe SIPA",
+  ga_account_service_id: '1234@gmail.com',
+  current_credits: 12,
+  monthly_credits: 30
+  )
+
 organization1 = Organization.create!(
   name: "Surelytics Consulting Agency Corp",
   ga_account_service_id: '1234@gmail.com',
@@ -39,6 +46,20 @@ organization4 = Organization.create!(
   )
 
 # Users
+
+user0 = User.create!(
+  organization: organization0,
+  email: "aristide.riou@ouest-france.fr",
+  role: 'admin',
+  password: 'aristideGA'
+  )
+
+user00 = User.create!(
+  organization: organization0,
+  email: "vincent.lahaye@ouest-france.fr",
+  role: 'admin',
+  password: 'Motocultor2019'
+  )
 
 user1 = User.create!(
   organization: organization1,
@@ -76,6 +97,12 @@ user5 = User.create!(
   )
 # Projects
 
+project0 = Project.create!(
+  name: "🐙Tests équipe tracking - PFN OF",
+  organization: organization0,
+  ga_view_id: "161657893"
+  )
+
 project1 = Project.create!(
   name: "Acme Corporation",
   organization: organization1,
@@ -106,7 +133,7 @@ test1 = Test.create!(
   user: user1,
   project: project1,
   name: '🚀 Event category check',
-  frequency: 'daily',
+  frequency: 'minute',
   ga_report_type: 'Event Category',
   event_category_regex:'Éditorial|Technique'
   )
@@ -124,7 +151,7 @@ test1bisbis = Test.create!(
   user: user1,
   project: project1,
   name: '🤠 Publication year',
-  frequency: 'daily',
+  frequency: 'minute',
   ga_report_type: 'Custom Dimension',
   cd_index: 9,
   cd_regex: '2106|2017|2018|vide',
