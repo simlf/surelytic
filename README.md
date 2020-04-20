@@ -1,6 +1,6 @@
 Une application Rails crée à l'issue de ma formation au Wagon classé [meilleur bootcamp sur SwitchUp](https://www.switchup.org/rankings/best-coding-bootcamps).
 
-Une vidéo de présentation est disponible [ici](https://youtu.be/_gVX2RETKuM?t=95).
+La vidéo du DemoDay est [ici](https://youtu.be/_gVX2RETKuM?t=114).
 
  Un outil permettant aux utilisateurs de Google Analytics de contrôler la qualité de leurs données et de leurs tests.
 
