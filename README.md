@@ -9,3 +9,7 @@ Stack technique : PostgreSQL, Ruby on Rails, Redis, Sidekiq, HTML, CSS/Bootstrap
 Ce projet a été réalisé en 10 jours avec 3 autres collaborateurs (nous avons utilisé des outils comme Slack, Trello, Git et Figma pour s'organiser et répartir les tâches).
 
 ![SURELYTIC-DASHBOARD](surelytic-dashboard.jpg)
+
+![SURELYTIC-organization](surelytic-organization.jpg)
+
+![SURELYTIC-project](surelytic-project.jpg)
